@@ -1,14 +1,11 @@
 /**
- * "Add a class FillInQuestionVersion1 to the question hierarchy of Section 9,1. Such a question is constructed with a string that contains
+ * "Add a class FillInQuestion to the question hierarchy of Section 9,1. Such a question is constructed with a string that contains
  * the answer, surrounded by _ _, for example, "The inventor of Java was _James Gosling_". The question should be displayed as
  * "The inventor of Java was ____________"."
  *
- * Note: I took the text of this exercise to mean that the constructor of the FillInQuestionVersion1 class should take the fill-in question with the
+ * Note: I took the text of this exercise to mean that the constructor of the FillInQuestion class should take the fill-in question with the
  * answer filled in as a parameter. This resulted in some akward code. I made another version (version2) that does things a little differently.
  */
-
-
-import java.util.logging.*;
 
 public class FillInQuestionVersion1 extends Question {
 
@@ -17,12 +14,11 @@ public class FillInQuestionVersion1 extends Question {
 
     /**
      * a constructor that takes a fill-in question with the answer filled in as parameter.
-     * @param questionWithAnswerFilledIn
+     * @param questionWithAnswerFilledIn = the fill-in question with the answer filled in.
      */
     public FillInQuestionVersion1(String questionWithAnswerFilledIn) {
         this.questionWithAnswerFilledIn = questionWithAnswerFilledIn;
-        this.indices = new int[2]; // an int array to hold the indices of the underscores surrounding the answer.
-
+        this.indices = new int[2];  //an int array to hold the indices of the underscores surrounding the answer.
     }
 
     /**
@@ -54,7 +50,7 @@ public class FillInQuestionVersion1 extends Question {
 
     /**
      * getIndices gets the indices of the underscores(_) in the fill-in question with the answer filled in, in order to filter out the answer.
-     * @param questionWithAnswerFilledIn
+     * @param questionWithAnswerFilledIn = the fill-in question with the answer filled.in
      */
     private void getIndices(String questionWithAnswerFilledIn) { //I declared this method private because only other methods of this class should have access to it.
         int indicesIndex = 0;
