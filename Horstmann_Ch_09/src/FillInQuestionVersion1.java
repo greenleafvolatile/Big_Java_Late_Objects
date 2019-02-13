@@ -60,7 +60,6 @@ public class FillInQuestionVersion1 extends Question {
         int indicesIndex = 0;
         for(int i=0;i<this.questionWithAnswerFilledIn.length();i++) {
                 if (this.questionWithAnswerFilledIn.charAt(i) == '_') {
-                    Logger.getGlobal().info("Index: " + i);
                     this.indices[indicesIndex] = i;
                     indicesIndex++;
                 }
