@@ -20,7 +20,7 @@ public class ProgrammingExerciseP113 extends JFrame {
         this.createCenterPanel();
         this.createButtons();
         this.createButtonPanel();
-        this.constructPanel();
+        this.constructFrame();
         this.pack();
     }
 
@@ -123,7 +123,7 @@ public class ProgrammingExerciseP113 extends JFrame {
 
     }
 
-    private void constructPanel() {
+    private void constructFrame() {
 
         final int SIDEPANEL_WIDTH=150, SIDEPANEL_HEIGHT=100, TOPPANEL_WIDTH=400, TOPPANEL_HEIGHT=150;
         this.add(centerPanel, BorderLayout.CENTER);
