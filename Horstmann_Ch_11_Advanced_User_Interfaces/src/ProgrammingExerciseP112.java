@@ -5,10 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-/**
- * Add icons to the buttons of Exercise P11.1 Use a JButton constructor with an Icon argument and supply an ImageIcon
- */
-
 public class ProgrammingExerciseP112 extends JFrame {
 
 
