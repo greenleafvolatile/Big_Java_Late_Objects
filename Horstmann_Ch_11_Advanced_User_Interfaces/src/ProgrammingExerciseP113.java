@@ -9,7 +9,7 @@ import javax.swing.border.LineBorder;
  * Write an application with three radio buttons labeled "Red", "Green", and "Blue" that changes the
  * background color of a panel in the center of the frame to red, green, or blue.
  */
-public class ProgrammingExerciseP113 extends JFrame { //
+public class ProgrammingExerciseP113 extends JFrame {
 
 
     private JPanel centerPanel, buttonPanel;
