@@ -17,7 +17,7 @@ public class ProgrammingExerciseP117 extends JFrame {
 
     class RectangleComponent3 extends JComponent{
 
-        private final int RECT_WIDTH=30, RECT_HEIGHT=15,COMP_WIDTH=400, COMP_HEIGHT=400, INIT_NR_RECT=8;
+        private final int RECT_WIDTH=30, RECT_HEIGHT=15,COMP_WIDTH=400, COMP_HEIGHT=400, INIT_NR_RECT=1;
         private final Random randomGenerator=new Random();
         private final Color rectangleColor=Color.RED;
 
