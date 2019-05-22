@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ProgrammingExerciseP117 extends JFrame { //
+public class ProgrammingExerciseP117 extends JFrame {
 
     private final RectangleComponent3 rectangleComponent;
 
