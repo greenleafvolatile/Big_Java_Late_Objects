@@ -5,13 +5,13 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-public class ProgrammingExerciseP112 extends JFrame {
+public class ProgrammingExercise112 extends JFrame {
 
 
     private JPanel centerPanel, buttonPanel;
 
 
-    private ProgrammingExerciseP112() {
+    private ProgrammingExercise112() {
         this.createCenterPanel();
         this.createButtonPanel();
         this.constructPanel();
@@ -27,7 +27,7 @@ public class ProgrammingExerciseP112 extends JFrame {
         }
 
         public void actionPerformed(ActionEvent event) {
-            ProgrammingExerciseP112.this.centerPanel.setBackground(color);
+            ProgrammingExercise112.this.centerPanel.setBackground(color);
         }
     }
 
@@ -109,7 +109,7 @@ public class ProgrammingExerciseP112 extends JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new ProgrammingExerciseP112();
+        JFrame frame = new ProgrammingExercise112();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
