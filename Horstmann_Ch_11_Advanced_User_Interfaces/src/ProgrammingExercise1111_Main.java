@@ -56,8 +56,8 @@ public class ProgrammingExercise1111_Main extends JFrame {
     }
 
     private void createTextFields(){
-        lengthField=new JTextField(10);
-        nameField=new JTextField(10);
+        lengthField=new JTextField();
+        nameField=new JTextField();
     }
 
     private void createButtons() {
@@ -94,10 +94,10 @@ public class ProgrammingExercise1111_Main extends JFrame {
     }
 
     private void createControlPanel(){
-        final int CP_ROWS=1, CP_COLUMNS=3, LP_ROWS=2, LP_COLUMNS=1, RP_ROWs=3, RP_COLUMNS=1, MP_ROWS=2, MP_COLUMNS=1;
+        final int CP_ROWS=1, CP_COLUMNS=3, LP_ROWS=2, LP_COLUMNS=1, RP_ROWs=3, RP_COLUMNS=1, MP_ROWS=2, MP_COLUMNS=1, BORDER_THICKNESS=1;
         JPanel controlPanel=new JPanel();
         controlPanel.setLayout(new GridLayout(CP_ROWS, CP_COLUMNS));
-        controlPanel.setBorder(new LineBorder(Color.BLACK, 1));
+        controlPanel.setBorder(new LineBorder(Color.BLACK, BORDER_THICKNESS));
 
         JPanel leftPanel=new JPanel(new GridLayout(LP_ROWS, LP_COLUMNS));
         JPanel rightPanel=new JPanel(new GridLayout(RP_ROWs, RP_COLUMNS));
