@@ -11,11 +11,11 @@ import javax.swing.border.LineBorder;
  * in the center of the frame to red, green, or blue.
  */
 
-public class ProgrammingExerciseP111 extends JFrame {
+public class ProgrammingExercise111 extends JFrame {
 
     private JPanel centerPanel, buttonPanel;
 
-    private ProgrammingExerciseP111() {
+    private ProgrammingExercise111() {
         this.createCenterPanel();
         this.createButtonPanel();
         this.constructPanel();
@@ -31,7 +31,7 @@ public class ProgrammingExerciseP111 extends JFrame {
         }
 
         public void actionPerformed(ActionEvent event) {
-            ProgrammingExerciseP111.this.centerPanel.setBackground(color);
+            ProgrammingExercise111.this.centerPanel.setBackground(color);
         }
     }
 
@@ -100,7 +100,7 @@ public class ProgrammingExerciseP111 extends JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new ProgrammingExerciseP111();
+        JFrame frame = new ProgrammingExercise111();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
