@@ -18,7 +18,7 @@ import java.awt.*;
  * |Mackinac                     |
  * -------------------------------
  *
- * Use appropriate components to ask for the length, label, and color, then apply them when the user clicks and "Add item" button"."
+ * Use appropriate components to ask for the length, label, and color, then apply them when the user clicks an "Add item" button"."
  */
 
 public class ProgrammingExercise1111_Main extends JFrame {
