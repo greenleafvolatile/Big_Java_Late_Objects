@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ProgrammingExerciseP117 extends JFrame {
+public class ProgrammingExercise117 extends JFrame {
 
     private final RectangleComponent3 rectangleComponent;
 
-    private ProgrammingExerciseP117(){
+    private ProgrammingExercise117(){
         this.rectangleComponent=new RectangleComponent3();
         this.add(rectangleComponent);
         this.createMenuBar();
@@ -77,8 +77,8 @@ public class ProgrammingExerciseP117 extends JFrame {
         JMenuItem more=new JMenuItem("More");
         JMenuItem less=new JMenuItem("Less");
 
-        more.addActionListener(e -> ProgrammingExerciseP117.this.rectangleComponent.doubleNrOfRectangles());
-        less.addActionListener(e -> ProgrammingExerciseP117.this.rectangleComponent.halveNrOfRectangles());
+        more.addActionListener(e -> ProgrammingExercise117.this.rectangleComponent.doubleNrOfRectangles());
+        less.addActionListener(e -> ProgrammingExercise117.this.rectangleComponent.halveNrOfRectangles());
 
         moreOrLess.add(more);
         moreOrLess.add(less);
@@ -87,7 +87,7 @@ public class ProgrammingExerciseP117 extends JFrame {
     }
 
     public static void main(String[] args){
-        JFrame frame=new ProgrammingExerciseP117();
+        JFrame frame=new ProgrammingExercise117();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
