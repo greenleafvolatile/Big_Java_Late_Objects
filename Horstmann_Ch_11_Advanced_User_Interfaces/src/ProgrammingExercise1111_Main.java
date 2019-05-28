@@ -49,7 +49,7 @@ public class ProgrammingExercise1111_Main extends JFrame {
     }
 
     private void createLabels(){
-        lengthLabel=new JLabel(String.format("Item length: (n< %d)", chartComponent.getPreferredSize().width));
+        lengthLabel=new JLabel(String.format("Item length: (0<n>%d)", chartComponent.getPreferredSize().width));
         lengthLabel.setHorizontalAlignment(SwingConstants.CENTER);
         nameLabel=new JLabel("Item title: ");
         nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
