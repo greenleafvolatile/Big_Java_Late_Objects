@@ -2,12 +2,12 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class ProgrammingExercise1113_Component extends JComponent{
+public class ProgrammingExercise11_13_Component extends JComponent{
 
     private static final int DIAMETER=25, INIT_XPOS=20, INIT_YPOS=50;
     private int xPos, yPos;
 
-    public ProgrammingExercise1113_Component(){
+    public ProgrammingExercise11_13_Component(){
         final int BORDER_THICKNESS=2;
         final Color BORDER_COLOR= Color.BLACK;
         this.setBorder(new LineBorder(BORDER_COLOR, BORDER_THICKNESS));
@@ -17,7 +17,6 @@ public class ProgrammingExercise1113_Component extends JComponent{
 
     public void paintComponent(Graphics g){
         g.fillOval(xPos, yPos, DIAMETER, DIAMETER);
-
     }
 
     public void moveRectangleBy(int dx, int dy){
