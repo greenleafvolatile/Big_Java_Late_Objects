@@ -9,13 +9,13 @@ import javax.swing.border.LineBorder;
  * "Add icons to the buttons of Exercise P11.1. Use a JButton constructor with an Icon argument and supply an ImageIcon."
  */
 
-public class ProgrammingExercise11_2 extends JFrame {
+public class Programming_Exercise11_2 extends JFrame {
 
 
     private JPanel centerPanel, buttonPanel;
 
 
-    private ProgrammingExercise11_2() {
+    private Programming_Exercise11_2() {
         this.createCenterPanel();
         this.createButtonPanel();
         this.constructPanel();
@@ -31,7 +31,7 @@ public class ProgrammingExercise11_2 extends JFrame {
         }
 
         public void actionPerformed(ActionEvent event) {
-            ProgrammingExercise11_2.this.centerPanel.setBackground(color);
+            Programming_Exercise11_2.this.centerPanel.setBackground(color);
         }
     }
 
@@ -113,7 +113,7 @@ public class ProgrammingExercise11_2 extends JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new ProgrammingExercise11_2();
+        JFrame frame = new Programming_Exercise11_2();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
