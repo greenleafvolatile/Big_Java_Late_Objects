@@ -5,17 +5,18 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 /**
- * Write an application with three radio buttons labeled "Red", "Green", and "Blue" that changes the
- * background color of a panel in the center of the frame to red, green, or blue.
+ * "Write an application with three radio buttons labeled "Red", "Green", and "Blue" that changes the
+ * background color of a panel in the center of the frame to red, green, or blue."
  */
-public class ProgrammingExercise113 extends JFrame {
+
+public class Programming_Exercise_11_3 extends JFrame {
 
 
     private JPanel centerPanel, buttonPanel;
     private JRadioButton greenButton, redButton, blueButton;
 
 
-    private ProgrammingExercise113() {
+    private Programming_Exercise_11_3() {
         this.createCenterPanel();
         this.createButtons();
         this.createButtonPanel();
@@ -32,7 +33,7 @@ public class ProgrammingExercise113 extends JFrame {
         }
 
         public void actionPerformed(ActionEvent event) {
-            ProgrammingExercise113.this.centerPanel.setBackground(color);
+            Programming_Exercise_11_3.this.centerPanel.setBackground(color);
         }
     }
 
@@ -134,7 +135,7 @@ public class ProgrammingExercise113 extends JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new ProgrammingExercise113();
+        JFrame frame = new Programming_Exercise_11_3();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
