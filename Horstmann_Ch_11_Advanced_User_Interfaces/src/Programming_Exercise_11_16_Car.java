@@ -1,13 +1,13 @@
 import java.awt.*;
 
-public class Programming_Exercise_11_15_Car {
+public class Programming_Exercise_11_16_Car {
 
     public final static int WIDTH=45, HEIGHT=15, TIRE_DIAMETER=12;
     private int xPos, yPos;
-    private boolean movingLeft;
+    private String direction;
 
-    public Programming_Exercise_11_15_Car(Point point, boolean direction){
-        this.movingLeft=direction;
+    public Programming_Exercise_11_16_Car(Point point, String direction){
+        this.direction=direction;
         this.xPos=(int) point.getX();
         this.yPos=(int) point.getY();
 
@@ -29,28 +29,18 @@ public class Programming_Exercise_11_15_Car {
     }
 
     public void drive(){
-        if(movingLeft==true){
+        if(direction.equals("left")){
             this.xPos--;
         }
-        else{
+        else if(direction.equals("right")){
             this.xPos++;
         }
     }
 
+    public void setDirection(String direction){
+        this.direction=direction;
+    }
     public int getXpos(){
         return this.xPos;
-    }
-
-    public void setDirection(boolean direction){
-        this.movingLeft=direction;
-    }
-
-    public void setInitPosition(Point point){
-        this.xPos=(int) point.getX();
-        this.yPos=(int) point.getY();
-    }
-
-    public void setInitDirection(boolean direction){
-        this.movingLeft=direction;
     }
 }
