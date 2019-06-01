@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
  * This application can display a total of eight color combinations."
  */
 
-public class ProgrammingExercise114 extends JFrame {
+public class Programming_Exercise_11_4 extends JFrame {
 
 
     private JPanel centerPanel, buttonPanel;
@@ -18,7 +18,7 @@ public class ProgrammingExercise114 extends JFrame {
     private int red, green, blue;
 
 
-    private ProgrammingExercise114() {
+    private Programming_Exercise_11_4() {
         this.red=0;
         this.green=0;
         this.blue=0;
@@ -33,12 +33,12 @@ public class ProgrammingExercise114 extends JFrame {
 
         public void actionPerformed(ActionEvent event) {
             System.out.print(centerPanel.getBackground());
-            ProgrammingExercise114.this.setColors();
+            Programming_Exercise_11_4.this.setColors();
             if(red==0 && green==0 && blue==0){
-                ProgrammingExercise114.this.centerPanel.setBackground(new Color(238, 238, 238));
+                Programming_Exercise_11_4.this.centerPanel.setBackground(new Color(238, 238, 238));
             }
             else{
-                ProgrammingExercise114.this.centerPanel.setBackground(new Color(ProgrammingExercise114.this.red, ProgrammingExercise114.this.green, ProgrammingExercise114.this.blue));
+                Programming_Exercise_11_4.this.centerPanel.setBackground(new Color(Programming_Exercise_11_4.this.red, Programming_Exercise_11_4.this.green, Programming_Exercise_11_4.this.blue));
             }
         }
     }
@@ -139,7 +139,7 @@ public class ProgrammingExercise114 extends JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new ProgrammingExercise114();
+        JFrame frame = new Programming_Exercise_11_4();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
