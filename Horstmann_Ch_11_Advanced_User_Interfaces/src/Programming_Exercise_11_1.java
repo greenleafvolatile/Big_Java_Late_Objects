@@ -62,8 +62,7 @@ public class Programming_Exercise_11_1 extends JFrame {
         final Color BORDER_COLOR=Color.BLACK;
         final int BORDER_THICKNESS=5, PREF_WIDTH=100, PREF_HEIGHT=100;
 
-        this.centerPanel = new JPanel();
-        this.centerPanel.setPreferredSize(new Dimension(PREF_WIDTH, PREF_HEIGHT));
+        this.centerPanel = new CustomPanel(PREF_WIDTH, PREF_HEIGHT);
         this.centerPanel.setBorder(new LineBorder(BORDER_COLOR, BORDER_THICKNESS));
     }
 
@@ -92,7 +91,7 @@ public class Programming_Exercise_11_1 extends JFrame {
 
         final int SIDEPANEL_WIDTH=150, SIDEPANEL_HEIGHT=100, TOPPANEL_WIDTH=400, TOPPANEL_HEIGHT=150;
         this.add(centerPanel, BorderLayout.CENTER);
-        this.add(new CustomPanel(SIDEPANEL_WIDTH, SIDEPANEL_HEIGHT), BorderLayout.EAST);
+        this.add(new CustomPanel(SIDEPANEL_WIDTH, SIDEPANEL_HEIGHT), BorderLayout.EAST); // Note to self: I had trouble invoking add() with a  JPanel().setPreferredSize argument here. That is why I created the CustomPanel class.
         this.add(new CustomPanel(SIDEPANEL_WIDTH, SIDEPANEL_HEIGHT), BorderLayout.WEST);
         this.add(new CustomPanel(TOPPANEL_WIDTH, TOPPANEL_HEIGHT), BorderLayout.NORTH);
         this.add(buttonPanel, BorderLayout.SOUTH);
