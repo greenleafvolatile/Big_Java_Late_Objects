@@ -2,12 +2,12 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class ProgrammingExercise11_13_Component extends JComponent{
+public class Programming_Exercise_11_13_Component extends JComponent{
 
     private static final int DIAMETER=25, INIT_XPOS=20, INIT_YPOS=50;
     private int xPos, yPos;
 
-    public ProgrammingExercise11_13_Component(){
+    public Programming_Exercise_11_13_Component(){
         final int BORDER_THICKNESS=2;
         final Color BORDER_COLOR= Color.BLACK;
         this.setBorder(new LineBorder(BORDER_COLOR, BORDER_THICKNESS));
