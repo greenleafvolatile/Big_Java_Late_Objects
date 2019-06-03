@@ -7,9 +7,6 @@ public class Programming_Exercise_11_16_Car_Component extends JComponent {
     public static final int PREF_WIDTH=400;
     public static final int PREF_HEIGHT=400;
 
-    //private final Programming_Exercise_11_16_Car carOne;
-    //private final Programming_Exercise_11_16_Car carTwo;
-
     private final List<Programming_Exercise_11_16_Car> cars;
 
     public Programming_Exercise_11_16_Car_Component(List<Programming_Exercise_11_16_Car> cars){
