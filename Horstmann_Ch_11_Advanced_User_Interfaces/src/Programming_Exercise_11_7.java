@@ -25,7 +25,6 @@ public class Programming_Exercise_11_7 extends JFrame {
         private final int RECT_WIDTH=30, RECT_HEIGHT=15,COMP_WIDTH=400, COMP_HEIGHT=400, INIT_NR_RECT=1;
         private final Random randomGenerator=new Random();
         private final Color rectangleColor=Color.RED;
-
         private final List<Rectangle> rectangles;
 
         Rectangle_Component(){
