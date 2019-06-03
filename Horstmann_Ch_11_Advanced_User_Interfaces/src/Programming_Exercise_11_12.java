@@ -7,7 +7,7 @@ import java.util.TimerTask;
  * Write a program that uses a timer to print the current time once a second.
  */
 
-public class ProgrammingExercise1112 {
+public class Programming_Exercise_11_12 {
 
     public static void main(String[] args){
 
