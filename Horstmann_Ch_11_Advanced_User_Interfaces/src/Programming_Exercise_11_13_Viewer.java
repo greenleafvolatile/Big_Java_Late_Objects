@@ -5,7 +5,7 @@ import javax.swing.*;
  * edges of the component rather than simply moving outside."
  */
 
-public class ProgrammingExercise11_13_Viewer {
+public class Programming_Exercise_11_13_Viewer {
 
     public static void main(String[] args){
 
