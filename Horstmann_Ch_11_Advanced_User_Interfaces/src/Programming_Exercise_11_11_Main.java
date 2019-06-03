@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * "Write a program that lets users design charts such as the following:
@@ -86,11 +88,17 @@ public class Programming_Exercise_11_11_Main extends JFrame {
                     JOptionPane.showMessageDialog(Programming_Exercise_11_11_Main.this, e.getMessage(), "Error!", JOptionPane.ERROR_MESSAGE);
                 }
             }
+            lengthField.setText("");
+            nameField.setText("");
 
         });
 
         resetButton = new JButton("Reset");
-        resetButton.addActionListener(e -> Programming_Exercise_11_11_Main.this.chartComponent.reset());
+        resetButton.addActionListener(e -> {
+            Programming_Exercise_11_11_Main.this.chartComponent.reset();
+            lengthField.setText("");
+            nameField.setText("");
+        });
     }
 
     private void createControlPanel(){
