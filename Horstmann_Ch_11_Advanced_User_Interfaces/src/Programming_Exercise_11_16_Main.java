@@ -6,6 +6,10 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Write a program that animates two cars moving across a frame in opposite directions (but at different heights so that they don't collide)
+ */
+
 public class Programming_Exercise_11_16_Main extends JFrame {
 
     List<Programming_Exercise_11_16_Car> cars;
@@ -14,8 +18,8 @@ public class Programming_Exercise_11_16_Main extends JFrame {
     private Programming_Exercise_11_16_Main(){
 
         cars=new ArrayList<>();
-        cars.add(new Programming_Exercise_11_16_Car(new Point(Programming_Exercise_11_16_Car_Component.PREF_WIDTH/2, 50), "right"));
-        cars.add(new Programming_Exercise_11_16_Car(new Point(Programming_Exercise_11_16_Car_Component.PREF_WIDTH/2- Programming_Exercise_11_16_Car.WIDTH, 150), "left"));
+        cars.add(new Programming_Exercise_11_16_Car(new Point(Programming_Exercise_11_16_Car_Component.PREF_WIDTH/2, 50), "left"));
+        cars.add(new Programming_Exercise_11_16_Car(new Point(Programming_Exercise_11_16_Car_Component.PREF_WIDTH/2- Programming_Exercise_11_16_Car.WIDTH, 150), "right"));
 
         JPanel contPanel=new JPanel();
         this.setContentPane(contPanel);
@@ -41,10 +45,10 @@ public class Programming_Exercise_11_16_Main extends JFrame {
         public void actionPerformed(ActionEvent event){
             for(int i=0;i<cars.size();i++){
                 if(cars.get(i).getXpos()==0){
-                    cars.get(i).setDirection("right");
+                    cars.get(i).setDirection("DRIVE_RIGHT");
                 }
                 else if(cars.get(i).getXpos()+ Programming_Exercise_11_16_Car.WIDTH==carComponent.getPreferredSize().width-1){
-                    cars.get(i).setDirection("left");
+                    cars.get(i).setDirection("DRIVE_LEFT");
                 }
                 cars.get(i).drive();
                 carComponent.repaint();
