@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ProgrammingExercise117 extends JFrame {
+/**
+ * "Write a program that displays a number of rectangles at random positions. Supply menu items "Fewer" and "More" that generate fewer or more random rectangles.
+ * Each time the user selects "Fewer", the count should be halved. Each time the user clicks on "More", the count should be doubled."
+ */
 
-    private final RectangleComponent3 rectangleComponent;
+public class Programming_Exercise_11_7 extends JFrame {
 
-    private ProgrammingExercise117(){
-        this.rectangleComponent=new RectangleComponent3();
+    private final Rectangle_Component rectangleComponent;
+
+    private Programming_Exercise_11_7(){
+        this.rectangleComponent=new Rectangle_Component();
         this.add(rectangleComponent);
         this.createMenuBar();
         this.pack();
     }
 
-    class RectangleComponent3 extends JComponent{
+    class Rectangle_Component extends JComponent{
 
         private final int RECT_WIDTH=30, RECT_HEIGHT=15,COMP_WIDTH=400, COMP_HEIGHT=400, INIT_NR_RECT=1;
         private final Random randomGenerator=new Random();
@@ -23,7 +28,7 @@ public class ProgrammingExercise117 extends JFrame {
 
         private final List<Rectangle> rectangles;
 
-        RectangleComponent3(){
+        Rectangle_Component(){
             this.rectangles=new ArrayList<>();
             this.initRectangles();
         }
@@ -77,8 +82,8 @@ public class ProgrammingExercise117 extends JFrame {
         JMenuItem more=new JMenuItem("More");
         JMenuItem less=new JMenuItem("Less");
 
-        more.addActionListener(e -> ProgrammingExercise117.this.rectangleComponent.doubleNrOfRectangles());
-        less.addActionListener(e -> ProgrammingExercise117.this.rectangleComponent.halveNrOfRectangles());
+        more.addActionListener(e -> Programming_Exercise_11_7.this.rectangleComponent.doubleNrOfRectangles());
+        less.addActionListener(e -> Programming_Exercise_11_7.this.rectangleComponent.halveNrOfRectangles());
 
         moreOrLess.add(more);
         moreOrLess.add(less);
@@ -87,7 +92,7 @@ public class ProgrammingExercise117 extends JFrame {
     }
 
     public static void main(String[] args){
-        JFrame frame=new ProgrammingExercise117();
+        JFrame frame=new Programming_Exercise_11_7();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
