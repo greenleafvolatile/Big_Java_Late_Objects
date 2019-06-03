@@ -9,7 +9,7 @@ public class ProgrammingExercise11_13_Viewer {
 
     public static void main(String[] args){
 
-        JFrame frame=new ProgrammingExercise11_13_Frame();
+        JFrame frame=new Programming_Exercise_11_13_Frame();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
