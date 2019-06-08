@@ -1,25 +1,25 @@
 public class Programming_Exercise_11_17_Direction{
 
-    String horizontal_directoin, vertical_direction;
+    String horizontal_direction, vertical_direction;
 
     public Programming_Exercise_11_17_Direction(String horizontal, String vertical){
-        this.horizontal_directoin=horizontal;
+        this.horizontal_direction=horizontal;
         this.vertical_direction=vertical;
     }
 
-    public void setHorizontalDirectoin(String horizontal) {
-        this.horizontal_directoin = horizontal;
+    public void setHorizontalDirection(String horizontal) {
+        this.horizontal_direction = horizontal;
     }
 
     public void setVerticalDirection(String vertical){
         this.vertical_direction=vertical;
     }
 
-    public String getHorizontalDirectoin(){
-        return this.horizontal_directoin;
+    public String getHorizontalDirection(){
+        return this.horizontal_direction;
     }
 
-    public String getVerticalDirecion(){
+    public String getVerticalDirection(){
         return this.vertical_direction;
     }
 }
