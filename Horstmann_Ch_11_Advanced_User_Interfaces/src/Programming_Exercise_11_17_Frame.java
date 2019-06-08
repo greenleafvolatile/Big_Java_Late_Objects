@@ -2,12 +2,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Rectangle2D;
+import java.util.logging.Logger;
 
 public class Programming_Exercise_11_17_Frame extends JFrame {
 
 
     private Programming_Exercise_11_17_Component component;
-    private int fontSize, fontStyle, messageHeight;
+    private int fontSize, fontStyle;
     private String fontFamily, message;
     JList systemFonts;
     private Font font;
@@ -23,8 +25,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
         contPanel.setLayout(new BorderLayout());
         contPanel.setBorder(new LineBorder(Color.BLACK, 2));
 
-        component=new Programming_Exercise_11_17_Component(message);
-        component.setFont(font);
+        component=new Programming_Exercise_11_17_Component(message, font);;
         contPanel.add(component, BorderLayout.CENTER);
 
         JMenuBar menuBar=new JMenuBar();
@@ -39,7 +40,6 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
         Timer t=new Timer(delay, new TimerListener());
         t.start();
     }
-
 
     public JMenu createFileMenu(){
 
@@ -58,13 +58,57 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     public JMenu createMessageMenu(){
 
         JMenu messageMenu=new JMenu("Message");
-        messageMenu.add(createFontMenu());
+
+        messageMenu.add(createSetMessageItem());
+        messageMenu.add(createSetMessageFontMenu());
+        messageMenu.add(createChangeDirectionItem());
         return messageMenu;
     }
 
-    public JMenu createFontMenu(){
+    private JMenuItem createChangeDirectionItem(){
+        JMenuItem changeDirection=new JMenuItem("Change message direction");
+        changeDirection.addActionListener(new ActionListener(){
 
-        JMenu fontMenu=new JMenu("Message font");
+            public void actionPerformed(ActionEvent event){
+                if (component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("up")) {
+                    component.setNewDirection("left", "down");
+                }
+                else if (component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("up")) {
+                    Logger.getGlobal().info("Check");
+                    component.setNewDirection("down", "right");
+                }
+                else if(component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
+                    component.setNewDirection("left", "up");
+                }
+                else if(component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("down")){
+                    component.setNewDirection("right", "up");
+                }
+            }
+        });
+        return changeDirection;
+    }
+
+    private JMenuItem createSetMessageItem(){
+        JMenuItem setMessage=new JMenuItem("Set message");
+        setMessage.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent event){
+                Programming_Exercise_11_17_Frame.this.message=JOptionPane.showInputDialog(Programming_Exercise_11_17_Frame.this.component, "Please input a new message: ", "Set message", JOptionPane.OK_OPTION);
+                if(Programming_Exercise_11_17_Frame.this.message==null) {
+                    Programming_Exercise_11_17_Frame.this.component.setMessage(Programming_Exercise_11_17_Frame.this.component.getMessage());
+                }
+                else if(Programming_Exercise_11_17_Frame.this.message.length()==0){
+                    JOptionPane.showMessageDialog(Programming_Exercise_11_17_Frame.this.component, "Message field can not be empty!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        return setMessage;
+
+    }
+
+    public JMenu createSetMessageFontMenu(){
+
+        JMenu fontMenu=new JMenu("Set message font");
         fontMenu.add(createStyleMenu());
         fontMenu.add(createSizeMenu());
         fontMenu.add(createFontFamilyMenu());
@@ -94,7 +138,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
     public JMenu createSizeMenu(){
 
-        JMenu sizeMenu=new JMenu("Size");
+        JMenu sizeMenu=new JMenu("Font Size");
         sizeMenu.add(createSizeItem("Bigger", 1));
         sizeMenu.add(createSizeItem("Smaller", -1));
         return sizeMenu;
@@ -116,7 +160,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
     public JMenu createStyleMenu(){
 
-        JMenu styleMenu=new JMenu("Style");
+        JMenu styleMenu=new JMenu("Font Style");
         styleMenu.add(createStyleItem("Bold", Font.BOLD));
         styleMenu.add(createStyleItem("Italic", Font.ITALIC));
         styleMenu.add(createStyleItem("Plain", Font.PLAIN));
@@ -148,15 +192,27 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent event){
-            if(component.getYpos()==component.getPreferredSize().height+component.getMessageHeight() && component.getXpos()>=component.getPreferredSize().width){
+            if(component.getYpos()>=component.getPreferredSize().height + component.getMessageMetrics().getHeight() && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
+                //Set message to start from top right corner.
                 component.setYpos(0);
-                component.setXpos(component.getPreferredSize().width+component.getMessageWidth());
+                component.setXpos(component.getPreferredSize().width);
                 component.setNewDirection("left", "down");
             }
-            if(component.getYpos()==component.getPreferredSize().height+component.getMessageHeight() && component.getXpos()==0-component.getMessageWidth()){
-                component.setXpos(0);
+            else if(component.getYpos()==component.getPreferredSize().height+component.getMessageMetrics().getHeight() && component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("down")){
+                // Set message to start from to left corner
+                component.setXpos(0-(int) component.getMessageMetrics().getWidth());
                 component.setYpos(0);
                 component.setNewDirection("right", "down");
+            }
+            else if(component.getYpos()<=0 && component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("up")){
+                component.setXpos(0-(int) component.getMessageMetrics().getWidth());
+                component.setYpos(component.getPreferredSize().height+(int) component.getMessageMetrics().getHeight());
+                component.setNewDirection("right", "up");
+            }
+            else if(component.getYpos()==0 && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("up")){
+                component.setXpos(component.getPreferredSize().width);
+                component.setYpos(component.getPreferredSize().height+(int) component.getMessageMetrics().getHeight());
+                component.setNewDirection("left", "up");
             }
             component.moveMessage();
 
