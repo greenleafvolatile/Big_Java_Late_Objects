@@ -1,74 +1,74 @@
+import java.awt.Canvas;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 
 public class Programming_Exercise_11_17_Component extends JComponent {
 
     public static final int PREF_WIDTH = 400, PREF_HEIGHT = 400;
-    public static final Point initPos = new Point(0, 0);
-    //public static final String INIT_HORIZONTAL_DIRECTION = "right", INIT_VERTICAL_DIRECTION="down");
 
-    private Rectangle2D messageRect;
+    private Rectangle2D messageMetrics;
     private Programming_Exercise_11_17_Direction direction;
-    private boolean up, left;
     private int xPos, yPos;
-    private String message, horDirection, verDirection;
+    private String message;
 
-    public Programming_Exercise_11_17_Component(String message) {
-        this.direction=new Programming_Exercise_11_17_Direction("right", "down");
+    public Programming_Exercise_11_17_Component(String message, Font font) {
+        this.setFont(font);
+        this.direction = new Programming_Exercise_11_17_Direction("left", "up");
         this.message = message;
-        //this.horDirection = INIT_HORIZONTAL_DIRECTION;
-        //this.verDirection = INIT_VERTICAL_DIRECTION;
-        this.xPos = (int) initPos.getX();
-        this.yPos = (int) initPos.getY();
+        Canvas c=new Canvas();
+        int messageHeight=c.getFontMetrics(font).getHeight();
+        this.xPos=PREF_WIDTH;
+        this.yPos=PREF_HEIGHT+messageHeight;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        this.messageRect = getMessageRect(g, message);
-        g.drawString(message, xPos - ((int) messageRect.getWidth()), yPos);
-
+        Graphics2D g2d=(Graphics2D) g;
+        this.messageMetrics=g2d.getFontMetrics().getStringBounds(message, g2d);
+        g.drawString(message, xPos, yPos);
+        System.out.println(String.format("(%d, %d)", xPos, yPos));
     }
 
-
-    public Rectangle2D getMessageRect(Graphics g, String message) {
-        Graphics2D g2d = (Graphics2D) g;
-        return g2d.getFontMetrics().getStringBounds(message, g2d);
+    public String getMessage(){
+        return this.message;
     }
 
-    public int getMessageHeight() {
-        return (int) this.messageRect.getHeight();
+    public void setMessage(String message){
+        this.message=message;
+        repaint();
     }
 
-    public int getMessageWidth(){
-        return (int) this.messageRect.getWidth();
+    public Rectangle2D getMessageMetrics() {
+        return this.messageMetrics;
     }
-
 
     public void moveMessage() {
-        if (this.direction.getVerticalDirecion().equals("down") && this.direction.getHorizontalDirectoin().equals("left")){
+        if (this.direction.getVerticalDirection().equals("down") && this.direction.getHorizontalDirection().equals("left")) {
             this.xPos--;
             this.yPos++;
-        }
-        else if (this.direction.getVerticalDirecion().equals("up") && this.direction.getHorizontalDirectoin().equals("right")){
+        } else if (this.direction.getVerticalDirection().equals("up") && this.direction.getHorizontalDirection().equals("right")) {
             this.xPos++;
-            this.yPos++;
-        }
-        else if (this.direction.getVerticalDirecion().equals("up") && this.direction.getHorizontalDirectoin().equals("left")){
+            this.yPos--;
+        } else if (this.direction.getVerticalDirection().equals("up") && this.direction.getHorizontalDirection().equals("left")) {
             this.xPos--;
             this.yPos--;
-        }
-        else if(this.direction.getVerticalDirecion().equals("down") && this.direction.getHorizontalDirectoin().equals("right")){
+        } else if (this.direction.getVerticalDirection().equals("down") && this.direction.getHorizontalDirection().equals("right")) {
             this.xPos++;
             this.yPos++;
         }
         repaint();
     }
 
-    public void setNewDirection(String horizontal, String vertical){
-        this.direction.setHorizontalDirectoin(horizontal);
+    public void setNewDirection(String horizontal, String vertical) {
+        this.direction.setHorizontalDirection(horizontal);
         this.direction.setVerticalDirection(vertical);
+        repaint();
+    }
 
+    public Programming_Exercise_11_17_Direction getDirection() {
+        return this.direction;
     }
 
     public Dimension getPreferredSize() {
@@ -89,22 +89,6 @@ public class Programming_Exercise_11_17_Component extends JComponent {
 
     public void setYpos(int pos) {
         this.yPos = pos;
-    }
-
-    public void setUp(){
-        this.up=!up;
-    }
-
-    public void setLeft(){
-        this.left=!left;
-    }
-
-    public boolean getUp(){
-        return this.up;
-    }
-
-    public boolean getLeft(){
-        return this.left;
     }
 }
 
