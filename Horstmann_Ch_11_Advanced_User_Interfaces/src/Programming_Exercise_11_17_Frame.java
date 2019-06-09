@@ -13,21 +13,27 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     private String fontFamily, message;
     JList systemFonts;
     private Font font;
+    private JPanel contPanel;
+    private Color backgroundColor, foregroundColor;
 
     public Programming_Exercise_11_17_Frame(){
+        this.foregroundColor=Color.BLACK;
+        this.backgroundColor=Color.WHITE;
         this.message="Test";
         this.fontStyle=Font.PLAIN;
         this.fontSize=12;
         this.fontFamily="TimesRoman";
         this.font=new Font(fontFamily, fontStyle, fontSize);
-        JPanel contPanel=new JPanel();
+        contPanel=new JPanel();
         this.setContentPane(contPanel);
         contPanel.setLayout(new BorderLayout());
         contPanel.setBorder(new LineBorder(Color.BLACK, 2));
+        contPanel.setBackground(backgroundColor);
+        contPanel.setForeground(foregroundColor);
 
-        component=new Programming_Exercise_11_17_Component(message, font);;
+        component=new Programming_Exercise_11_17_Component(message, font);
+
         contPanel.add(component, BorderLayout.CENTER);
-
         JMenuBar menuBar=new JMenuBar();
         this.setJMenuBar(menuBar);
         menuBar.add(createFileMenu());
@@ -59,12 +65,88 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
         JMenu messageMenu=new JMenu("Message");
 
+        messageMenu.add(createForegroundColorItem());
+        messageMenu.add(createChangeBackgroundColorItem());
         messageMenu.add(createSetMessageItem());
         messageMenu.add(createSetMessageFontMenu());
         messageMenu.add(createChangeDirectionItem());
         return messageMenu;
     }
 
+    private JMenuItem createForegroundColorItem(){
+        JMenuItem foregroundColorItem=new JMenuItem("Set foreground color");
+        foregroundColorItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent event) {
+                final JColorChooser colorChooser = new JColorChooser(Color.BLACK);
+
+                ActionListener cancelListener = new ActionListener() {
+
+                    public void actionPerformed(ActionEvent event) {
+                        Programming_Exercise_11_17_Frame.this.contPanel.setForeground(Programming_Exercise_11_17_Frame.this.foregroundColor);
+                    }
+                };
+
+                ActionListener okListener = new ActionListener() {
+
+                    public void actionPerformed(ActionEvent event) {
+                        Programming_Exercise_11_17_Frame.this.foregroundColor = colorChooser.getColor();
+                        Programming_Exercise_11_17_Frame.this.contPanel.setForeground(Programming_Exercise_11_17_Frame.this.foregroundColor);
+                    }
+                };
+
+                final JDialog colorDialog = JColorChooser.createDialog(Programming_Exercise_11_17_Frame.this.component, "Choose a background color", true, colorChooser, okListener, cancelListener);
+                colorDialog.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        super.windowClosed(e);
+                        Programming_Exercise_11_17_Frame.this.contPanel.setForeground(Programming_Exercise_11_17_Frame.this.foregroundColor);
+                    }
+                });
+                colorDialog.setVisible(true);
+            }
+
+        });
+        return foregroundColorItem;
+    }
+
+    private JMenuItem createChangeBackgroundColorItem(){
+        JMenuItem backgroundItem=new JMenuItem("Set background color");
+        backgroundItem.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent event){
+                final JColorChooser colorChooser=new JColorChooser(Color.BLACK);
+
+                ActionListener cancelListener=new ActionListener(){
+
+                    public void actionPerformed(ActionEvent event){
+                        Programming_Exercise_11_17_Frame.this.contPanel.setBackground(Programming_Exercise_11_17_Frame.this.backgroundColor);
+                    }
+                };
+
+                ActionListener okListener=new ActionListener(){
+
+                    public void actionPerformed(ActionEvent event){
+                        Programming_Exercise_11_17_Frame.this.backgroundColor=colorChooser.getColor();
+                        Programming_Exercise_11_17_Frame.this.contPanel.setBackground(Programming_Exercise_11_17_Frame.this.backgroundColor);
+                    }
+                };
+
+                final JDialog colorDialog=JColorChooser.createDialog(Programming_Exercise_11_17_Frame.this.component, "Choose a background color", true, colorChooser, okListener, cancelListener);
+                colorDialog.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        super.windowClosed(e);
+                        Programming_Exercise_11_17_Frame.this.contPanel.setBackground(Programming_Exercise_11_17_Frame.this.backgroundColor);
+                    }
+                });
+                colorDialog.setVisible(true);
+            }
+        });
+        return backgroundItem;
+    }
     private JMenuItem createChangeDirectionItem(){
         JMenuItem changeDirection=new JMenuItem("Change message direction");
         changeDirection.addActionListener(new ActionListener(){
@@ -74,8 +156,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
                     component.setNewDirection("left", "down");
                 }
                 else if (component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("up")) {
-                    Logger.getGlobal().info("Check");
-                    component.setNewDirection("down", "right");
+                    component.setNewDirection("right", "down");
                 }
                 else if(component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
                     component.setNewDirection("left", "up");
@@ -100,6 +181,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
                 else if(Programming_Exercise_11_17_Frame.this.message.length()==0){
                     JOptionPane.showMessageDialog(Programming_Exercise_11_17_Frame.this.component, "Message field can not be empty!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                Programming_Exercise_11_17_Frame.this.component.setMessage(Programming_Exercise_11_17_Frame.this.message);
             }
         });
         return setMessage;
@@ -192,26 +274,26 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent event){
-            if(component.getYpos()>=component.getPreferredSize().height + component.getMessageMetrics().getHeight() && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
+            if(component.getYpos()>=component.getPreferredSize().height + component.getMessageHeight() && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
                 //Set message to start from top right corner.
                 component.setYpos(0);
                 component.setXpos(component.getPreferredSize().width);
                 component.setNewDirection("left", "down");
             }
-            else if(component.getYpos()==component.getPreferredSize().height+component.getMessageMetrics().getHeight() && component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("down")){
+            else if(component.getYpos()>=component.getPreferredSize().height+component.getMessageHeight() && component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("down")){
                 // Set message to start from to left corner
-                component.setXpos(0-(int) component.getMessageMetrics().getWidth());
+                component.setXpos(0-(int) component.getMessageWidth());
                 component.setYpos(0);
                 component.setNewDirection("right", "down");
             }
             else if(component.getYpos()<=0 && component.getDirection().getHorizontalDirection().equals("left") && component.getDirection().getVerticalDirection().equals("up")){
-                component.setXpos(0-(int) component.getMessageMetrics().getWidth());
-                component.setYpos(component.getPreferredSize().height+(int) component.getMessageMetrics().getHeight());
+                component.setXpos(0-(int) component.getMessageWidth());
+                component.setYpos(component.getPreferredSize().height+(int) component.getMessageHeight());
                 component.setNewDirection("right", "up");
             }
             else if(component.getYpos()==0 && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("up")){
                 component.setXpos(component.getPreferredSize().width);
-                component.setYpos(component.getPreferredSize().height+(int) component.getMessageMetrics().getHeight());
+                component.setYpos(component.getPreferredSize().height+(int) component.getMessageHeight());
                 component.setNewDirection("left", "up");
             }
             component.moveMessage();
@@ -221,6 +303,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
     public static void main(String[] args){
         JFrame frame=new Programming_Exercise_11_17_Frame();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
