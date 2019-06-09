@@ -1,34 +1,31 @@
 import java.awt.Canvas;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
+import javax.swing.*;
 
-public class Programming_Exercise_11_17_Component extends JComponent {
+public class Programming_Exercise_11_17_Component extends JComponent{
 
     public static final int PREF_WIDTH = 400, PREF_HEIGHT = 400;
 
-    private Rectangle2D messageMetrics;
+    private String_Metrics_Calculator calculator;
     private Programming_Exercise_11_17_Direction direction;
     private int xPos, yPos;
     private String message;
 
     public Programming_Exercise_11_17_Component(String message, Font font) {
         this.setFont(font);
-        this.direction = new Programming_Exercise_11_17_Direction("left", "up");
         this.message = message;
-        Canvas c=new Canvas();
-        int messageHeight=c.getFontMetrics(font).getHeight();
-        this.xPos=PREF_WIDTH;
-        this.yPos=PREF_HEIGHT+messageHeight;
+        this.direction = new Programming_Exercise_11_17_Direction("right", "down");
+        final Point INIT_POSITION=new Point(0-new Canvas().getFontMetrics(this.getFont()).stringWidth(this.message), 0);
+        this.xPos=(int) INIT_POSITION.getX();
+        this.yPos=(int) INIT_POSITION.getY();
     }
 
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2d=(Graphics2D) g;
-        this.messageMetrics=g2d.getFontMetrics().getStringBounds(message, g2d);
-        g.drawString(message, xPos, yPos);
-        System.out.println(String.format("(%d, %d)", xPos, yPos));
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.drawString(message, xPos, yPos);
     }
 
     public String getMessage(){
@@ -36,12 +33,17 @@ public class Programming_Exercise_11_17_Component extends JComponent {
     }
 
     public void setMessage(String message){
+        Logger.getGlobal().info("Check!");
         this.message=message;
-        repaint();
+        this.repaint();
     }
 
-    public Rectangle2D getMessageMetrics() {
-        return this.messageMetrics;
+    public int getMessageHeight() {
+        return new Canvas().getFontMetrics(this.getFont()).stringWidth(this.message);
+    }
+
+    public int getMessageWidth(){
+        return new Canvas().getFontMetrics(this.getFont()).stringWidth(this.message);
     }
 
     public void moveMessage() {
@@ -64,7 +66,6 @@ public class Programming_Exercise_11_17_Component extends JComponent {
     public void setNewDirection(String horizontal, String vertical) {
         this.direction.setHorizontalDirection(horizontal);
         this.direction.setVerticalDirection(vertical);
-        repaint();
     }
 
     public Programming_Exercise_11_17_Direction getDirection() {
