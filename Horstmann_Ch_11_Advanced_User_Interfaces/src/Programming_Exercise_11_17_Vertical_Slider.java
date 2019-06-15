@@ -3,22 +3,35 @@ import java.awt.*;
 
 public class Programming_Exercise_11_17_Vertical_Slider extends JFrame {
 
-    private int height;
 
-    public Programming_Exercise_11_17_Vertical_Slider(int height){
-        this.height=height;
+    private JSlider slider;
+    private int min, max, value;
+
+    public Programming_Exercise_11_17_Vertical_Slider(int min, int max, int value){
+        this.max=max;
+        this.min=min;
+        this.value=value;
         this.initializeUI();
+
     }
 
-    public void initializeUI(){
+    private void initializeUI(){
 
         JPanel panel=new JPanel();
         panel.setLayout(new GridLayout(1, 1));
-        panel.setPreferredSize(new Dimension(0, height));
-        System.out.print(this.getMinimumSize().width);
-        JSlider slider=new JSlider(JSlider.VERTICAL, 0, 100, 0);
+        panel.setPreferredSize(new Dimension(50, Programming_Exercise_11_17_Component.PREF_HEIGHT));
+        slider=new JSlider(JSlider.VERTICAL, min, max, value);
+        //slider.setInverted(true);
+        slider.setMinorTickSpacing(2);
+        slider.setMajorTickSpacing(10);
+        slider.setPaintTicks(true);
+        //slider.setPaintLabels(true);
         panel.add(slider);
-        this.setContentPane(panel);
-        this.pack();
+        setContentPane(panel);
+        pack();
+    }
+
+    public JSlider getSlider(){
+        return slider;
     }
 }
