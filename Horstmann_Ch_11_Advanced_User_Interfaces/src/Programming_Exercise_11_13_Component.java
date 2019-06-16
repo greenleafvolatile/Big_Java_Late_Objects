@@ -15,6 +15,7 @@ public class Programming_Exercise_11_13_Component extends JComponent{
         this.yPos=INIT_YPOS;
     }
 
+    @Override
     public void paintComponent(Graphics g){
         g.fillOval(xPos, yPos, DIAMETER, DIAMETER);
     }
