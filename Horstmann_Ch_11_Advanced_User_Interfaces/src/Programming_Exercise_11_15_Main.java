@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 
 public class Programming_Exercise_11_15_Main extends JFrame {
 
-    List<Programming_Exercise_11_15_Car> cars;
-    Programming_Exercise_11_15_Car_Component carComponent;
+    private final List<Programming_Exercise_11_15_Car> cars;
+    private final Programming_Exercise_11_15_Car_Component carComponent;
 
     private Programming_Exercise_11_15_Main(){
 
@@ -42,14 +42,13 @@ public class Programming_Exercise_11_15_Main extends JFrame {
     class CarListener implements ActionListener{
 
         public void actionPerformed(ActionEvent event){
-            for(int i=0;i<cars.size();i++){
-                if(cars.get(i).getXpos()==0){
-                    cars.get(i).setDirection("right");
+            for (Programming_Exercise_11_15_Car car : cars) {
+                if (car.getXpos() == 0) {
+                    car.setDirection("right");
+                } else if (car.getXpos() + Programming_Exercise_11_15_Car.WIDTH == carComponent.getPreferredSize().width - 1) {
+                    car.setDirection("left");
                 }
-                else if(cars.get(i).getXpos()+ Programming_Exercise_11_15_Car.WIDTH==carComponent.getPreferredSize().width-1){
-                    cars.get(i).setDirection("left");
-                }
-                cars.get(i).drive();
+                car.drive();
                 carComponent.repaint();
             }
         }
