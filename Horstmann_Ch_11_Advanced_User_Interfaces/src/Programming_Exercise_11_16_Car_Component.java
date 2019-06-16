@@ -14,6 +14,7 @@ public class Programming_Exercise_11_16_Car_Component extends JComponent {
 
     }
 
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         for(int i=0;i<cars.size();i++){
