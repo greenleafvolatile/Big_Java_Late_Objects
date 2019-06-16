@@ -10,8 +10,10 @@ public class Programming_Exercise_11_17_Component extends JComponent{
     private final Programming_Exercise_11_17_Direction direction;
     private int xPos, yPos;
     private String message;
+    private Dimension dimension;
 
     public Programming_Exercise_11_17_Component(String message, Font font) {
+        dimension=new Dimension(PREF_WIDTH, PREF_HEIGHT);
         setFont(font);
         this.message = message;
         direction = new Programming_Exercise_11_17_Direction("right", "down");
@@ -67,12 +69,13 @@ public class Programming_Exercise_11_17_Component extends JComponent{
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(PREF_WIDTH, PREF_HEIGHT);
+        return dimension;
     }
 
-    public int getXpos() {
-        return xPos;
+    public void setDimension(int width, int height){
+        dimension=new Dimension(width, height);
     }
+
 
     public int getYpos() {
         return yPos;
