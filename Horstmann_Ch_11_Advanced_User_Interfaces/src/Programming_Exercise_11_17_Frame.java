@@ -33,7 +33,6 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     private Color foregroundColor;
 
     private Programming_Exercise_11_17_Frame(){
-        this.setSize(400, 400);
         foregroundColor=DEFAULT_FG_COLOR;
         backgroundColor=DEFAULT_BG_COLOR;
         message=DEFAULT_MESSAGE;
@@ -55,10 +54,12 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
         mainPanel.add(component, BorderLayout.CENTER);
 
         createMenuBar();
+        pack();
 
-        delay=50;
+        delay=10;
         timer=new Timer(delay, new TimerListener());
         timer.start();
+
     }
 
     /**
@@ -116,14 +117,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
         JMenu fileMenu=new JMenu("File");
         fileMenu.add(createExitItem());
-        fileMenu.add(createFullScreenItem());
         return fileMenu;
-    }
-
-    private JMenuItem createFullScreenItem(){
-        JMenuItem fullScreenItem=new JMenuItem("Full screen");
-        fullScreenItem.addActionListener(fullScreenEvent -> device.setFullScreenWindow(this));
-        return fullScreenItem;
     }
 
     private JMenuItem createExitItem(){
@@ -387,8 +381,14 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
         JFrame frame=new Programming_Exercise_11_17_Frame();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        frame.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                System.out.println(frame.getWidth());
+                
+            }
+        });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
 }
