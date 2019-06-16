@@ -54,11 +54,27 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
         mainPanel.add(component, BorderLayout.CENTER);
 
         createMenuBar();
+        addComponentListener();
         pack();
 
         delay=10;
         timer=new Timer(delay, new TimerListener());
         timer.start();
+
+    }
+
+    /**
+     * This method adds a ComponentListener to the frame that ensure that the component is resized then the frame is maximized or normalized using the OS controlled buttons.
+     * Unfortunately the text when maximized no longer moves neatly from one corner to the next(only halfway across the screen). I have however already sunk way more time into this
+     * exercise than I had initially alotted so I chose not to look into this.
+     */
+    private void addComponentListener(){
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                Programming_Exercise_11_17_Frame.this.component.setDimension(Programming_Exercise_11_17_Frame.this.getWidth(), Programming_Exercise_11_17_Frame.this.getHeight());
+            }
+        });
 
     }
 
@@ -345,6 +361,15 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
     }
 
+    private static void createAndShowGUI(){
+
+        JFrame frame=new Programming_Exercise_11_17_Frame();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+
     class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent event){
@@ -375,20 +400,10 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
             component.moveMessage();
 
         }
+
     }
 
     public static void main(String[] args){
-        JFrame frame=new Programming_Exercise_11_17_Frame();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
-        frame.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                System.out.println(frame.getWidth());
-                
-            }
-        });
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 }
