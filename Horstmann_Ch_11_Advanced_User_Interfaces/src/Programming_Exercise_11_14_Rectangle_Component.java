@@ -16,6 +16,7 @@ public class Programming_Exercise_11_14_Rectangle_Component extends JComponent {
         this.rectangles=rectangles;
     }
 
+    @Override
     public void paintComponent(Graphics g){
         Graphics2D g2d=(Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
