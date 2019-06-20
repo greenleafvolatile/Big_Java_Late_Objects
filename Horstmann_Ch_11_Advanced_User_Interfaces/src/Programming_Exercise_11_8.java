@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Modify the program of Exercise P11.7 to replace the buttons with a slider to
- * generate more or fewer random rectangles.
+ * "Modify the program of Exercise P11.7 to replace the buttons with a slider to
+ * generate more or fewer random rectangles."
  */
 public class Programming_Exercise_11_8 extends JFrame {
 
@@ -103,6 +103,7 @@ public class Programming_Exercise_11_8 extends JFrame {
 
     public static void main(String[] args){
         JFrame frame=new Programming_Exercise_11_8();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
