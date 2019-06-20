@@ -12,7 +12,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     private final static int DEFAULT_FONT_SIZE=12;
     private final static int BORDER_THICKNESS=2;
     private final static String DEFAULT_FONT_FAMILY="TimesRoman";
-    private final static String DEFAULT_MESSAGE="Made by Daan Pol";
+    private final static String DEFAULT_MESSAGE="Look at me floating here!";
     private final static Color DEFAULT_FG_COLOR=Color.BLACK;
     private final static Color DEFAULT_BG_COLOR=Color.WHITE;
     private final static Color BORDER_COLOR=Color.BLACK;
