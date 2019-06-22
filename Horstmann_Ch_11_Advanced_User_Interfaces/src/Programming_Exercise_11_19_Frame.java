@@ -69,6 +69,7 @@ public class Programming_Exercise_11_19_Frame extends JFrame{
         controlPanel.add(radiusLabel);
         controlPanel.add(radiusField);
         controlPanel.add(constructDrawButton());
+        Logger.getGlobal().info("ControlPanel width: " + controlPanel.getWidth());
 
         return controlPanel;
     }
