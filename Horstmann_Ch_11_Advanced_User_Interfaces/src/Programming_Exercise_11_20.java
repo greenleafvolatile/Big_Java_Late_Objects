@@ -2,17 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.logging.Logger;
-import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
 public class Programming_Exercise_11_20 extends JFrame {
 
     private JTextField radiusField;
-    private JPanel mainPanel;
 
     private Programming_Exercise_11_20(){
-        mainPanel=new JPanel();
+        JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         Programming_Exercise_11_20_Component component=new Programming_Exercise_11_20_Component();
         component.addMouseListener(new MouseAdapter(){
@@ -35,11 +32,12 @@ public class Programming_Exercise_11_20 extends JFrame {
 
     class Programming_Exercise_11_20_Component extends JComponent {
 
-        public static final int PREF_WIDTH = 400, PREF_HEIGHT = 400;
+        static final int PREF_WIDTH = 400;
+        static final int PREF_HEIGHT = 400;
 
         private int xPos, yPos, radius;
 
-        public Programming_Exercise_11_20_Component() {
+        Programming_Exercise_11_20_Component() {
 
         }
 
@@ -54,7 +52,7 @@ public class Programming_Exercise_11_20 extends JFrame {
             return new Dimension(PREF_WIDTH, PREF_HEIGHT);
         }
 
-        public void drawCircle(int x, int y, int value){
+        void drawCircle(int x, int y, int value){
             xPos=x;
             yPos=y;
             radius=value;
@@ -62,7 +60,7 @@ public class Programming_Exercise_11_20 extends JFrame {
         }
     }
 
-    public JPanel constructControlPanel(){
+    private JPanel constructControlPanel(){
         JPanel panel=new JPanel();
         panel.setBorder(new EtchedBorder());
         JLabel label=new JLabel("Enter radius");
@@ -72,7 +70,7 @@ public class Programming_Exercise_11_20 extends JFrame {
         return panel;
     }
 
-    public static void createAndShowGUI(){
+    private static void createAndShowGUI(){
         JFrame frame=new Programming_Exercise_11_20();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
