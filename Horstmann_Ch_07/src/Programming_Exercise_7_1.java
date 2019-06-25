@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * " Write a program that casrries out the following tasks:
+ * "Write a program that casrries out the following tasks:
  * -Open a file with the name hello.txt.
  * -Store the message "Hello, World!" in a file.
  * -Close the file.
