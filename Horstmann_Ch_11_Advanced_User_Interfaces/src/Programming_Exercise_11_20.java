@@ -4,6 +4,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.EtchedBorder;
 
+/**
+ * Write a program that allows the user to specify a circle by typing the radius in a text field and
+ * then clicking on the center. Note that you don't need a "Draw" button."
+ */
 public class Programming_Exercise_11_20 extends JFrame {
 
     private JTextField radiusField;
