@@ -8,7 +8,6 @@ import java.io.IOException;
 /**
  * "Write a program that reads a file containing text. Read each line and send it to the output file, preceded by line numbers."
  */
-
 public class programmingExercise72
 {
     public static void main(String[] args)
