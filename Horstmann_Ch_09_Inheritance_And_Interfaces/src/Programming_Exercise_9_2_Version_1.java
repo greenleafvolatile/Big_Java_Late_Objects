@@ -52,7 +52,7 @@ public class FillInQuestionVersion1 extends Question {
      * getIndices gets the indices of the underscores(_) in the fill-in question with the answer filled in, in order to filter out the answer.
      * @param questionWithAnswerFilledIn = the fill-in question with the answer filled.in
      */
-    private void getIndices(String questionWithAnswerFilledIn) { //I declared this method private because only other methods of this class should have access to it.
+    private void getIndices(String questionWithAnswerFilledIn) {
         int indicesIndex = 0;
         for(int i=0;i<this.questionWithAnswerFilledIn.length();i++) {
                 if (this.questionWithAnswerFilledIn.charAt(i) == '_') {
