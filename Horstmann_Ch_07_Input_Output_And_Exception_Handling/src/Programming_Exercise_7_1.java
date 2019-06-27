@@ -12,7 +12,7 @@ import java.util.Scanner;
  * -Read the message into a string variable and print it."
  *
  */
-public class programmingExercise71
+public class Programming_Exercise_7_1
 {
     public static void main(String[] args)
     {
