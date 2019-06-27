@@ -23,7 +23,7 @@ public class Programming_Exercise_7_1
 
     public static File writeToFile()
     {
-        File file = new File("/home/daan/IdeaProjects/Horstmann_Ch_07/src/hello.txt");
+        File file = new File("/home/daan/IdeaProjects/Horstmann/Horstmann_Ch_07_Input_Output_And_Exception_Handling/src/hello.txt");
         try (PrintWriter out = new PrintWriter(file))
         {
             out.println("Hello, world!");
