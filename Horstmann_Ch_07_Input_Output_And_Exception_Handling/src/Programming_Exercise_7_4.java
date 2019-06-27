@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Prompt the user for the file name. Print the average of each column."
  */
 
-public class programmingExercise74
+public class Programming_Exercise_7_4
 {
     public static void main(String[] args)
     {
