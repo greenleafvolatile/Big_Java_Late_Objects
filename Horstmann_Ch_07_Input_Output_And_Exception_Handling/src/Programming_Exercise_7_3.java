@@ -9,7 +9,7 @@ import java.io.IOException;
  * If the user doesnt specify any file name, them prompt the user for the name."
  */
 
-public class programmingExercise73
+public class Programming_Exercise_7_3
 {
     public static void main(String[] args)
     {
