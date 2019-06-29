@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * "Write a program that casrries out the following tasks:
+ * "Write a program that carries out the following tasks:
  * -Open a file with the name hello.txt.
  * -Store the message "Hello, World!" in a file.
  * -Close the file.
- * -Open the same file agian.
+ * -Open the same file again.
  * -Read the message into a string variable and print it."
- *
  */
+
 public class Programming_Exercise_7_1
 {
     public static void main(String[] args)
