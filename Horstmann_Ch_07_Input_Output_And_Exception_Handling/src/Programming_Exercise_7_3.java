@@ -1,4 +1,3 @@
-import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -14,28 +13,24 @@ public class Programming_Exercise_7_3 {
         String inputFile;
         String outputFile;
         if (args.length < 2) {
-            System.out.print("Please provide 2 files!\n");
+            System.out.print("Missing arguments! Usage: command inputfile outputfile.\n");
             System.exit(0);
-        } else {
+        }
+        else {
             inputFile = args[0];
             outputFile = args[1];
-
-            try {
-                File inFile = new File(inputFile);
-                Scanner lineReader = new Scanner(inFile);
-                PrintWriter outFile = new PrintWriter(outputFile);
-                try {
-                    int lineNumber = 1;
-                    while (lineReader.hasNextLine()) {
-                        String line = lineReader.nextLine();
-                        outFile.printf("/* %s */ %s%n", lineNumber, line);
-                        lineNumber++;
-                    }
-                } finally {
-                    lineReader.close();
-                    outFile.close();
+            File inFile = new File(inputFile);
+            try(Scanner lineReader = new Scanner(inFile);
+                PrintWriter outFile = new PrintWriter(outputFile))
+            {
+                int lineNumber=1;
+                while (lineReader.hasNextLine()) {
+                    String line=lineReader.nextLine();
+                    outFile.printf("/* %s */ %s%n", lineNumber, line);
+                    lineNumber++;
                 }
-            } catch (IOException exception) {
+            }
+            catch (IOException exception) {
                 exception.printStackTrace();
             }
         }
