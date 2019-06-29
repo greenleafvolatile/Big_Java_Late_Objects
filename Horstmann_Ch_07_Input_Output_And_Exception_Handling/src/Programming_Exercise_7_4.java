@@ -23,29 +23,18 @@ public class Programming_Exercise_7_4
             columns.add(stdin.nextInt());
         }
         Logger.getGlobal().info("Columns: " + columns);
-        try
+        try(Scanner numberReader=new Scanner(inFile))
         {
-            Scanner numberReader = new Scanner(inFile);
-
-            try
+            ArrayList<Double> numbers = new ArrayList<Double>();
+            int nrOfColumns = getNumberOfColumns(inFile);
+            while(numberReader.hasNextDouble())
             {
-                ArrayList<Double> numbers = new ArrayList<Double>();
-                int nrOfColumns = getNumberOfColumns(inFile);
-                while(numberReader.hasNextDouble())
-                {
-                    double number = numberReader.nextDouble();
-                    numbers.add(number);
-                }
-                for (int i = 0; i < columns.size(); i ++)
-                {
-                    System.out.printf("The average for column %d is %.2f%n", columns.get(i), printAverageColumn(numbers, columns.get(i), nrOfColumns));
-                }
-
-
+                double number = numberReader.nextDouble();
+                numbers.add(number);
             }
-            finally
+            for (int i = 0; i < columns.size(); i ++)
             {
-                numberReader.close();
+                System.out.printf("The average for column %d is %.2f%n", columns.get(i), printAverageColumn(numbers, columns.get(i), nrOfColumns));
             }
         }
         catch (IOException IOEx1)
