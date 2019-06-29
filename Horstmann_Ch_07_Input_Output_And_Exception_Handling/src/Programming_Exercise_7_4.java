@@ -16,7 +16,7 @@ public class Programming_Exercise_7_4
         Scanner stdin = new Scanner(System.in);
         System.out.print("Please provide a name for the input file: ");
         File inFile = new File(stdin.nextLine());
-        ArrayList<Integer> columns = new ArrayList<Integer>();
+        ArrayList<Integer> columns = new ArrayList<>();
         System.out.print("Please input the numbers of the columns the values of which you would like to average ('q' to quit): ");
         while(stdin.hasNextInt())
         {
@@ -25,16 +25,15 @@ public class Programming_Exercise_7_4
         Logger.getGlobal().info("Columns: " + columns);
         try(Scanner numberReader=new Scanner(inFile))
         {
-            ArrayList<Double> numbers = new ArrayList<Double>();
+            ArrayList<Double> numbers = new ArrayList<>();
             int nrOfColumns = getNumberOfColumns(inFile);
             while(numberReader.hasNextDouble())
             {
                 double number = numberReader.nextDouble();
                 numbers.add(number);
             }
-            for (int i = 0; i < columns.size(); i ++)
-            {
-                System.out.printf("The average for column %d is %.2f%n", columns.get(i), printAverageColumn(numbers, columns.get(i), nrOfColumns));
+            for (Integer column : columns) {
+                System.out.printf("The average for column %d is %.2f%n", column, printAverageColumn(numbers, column, nrOfColumns));
             }
         }
         catch (IOException IOEx1)
@@ -43,7 +42,7 @@ public class Programming_Exercise_7_4
         }
     }
 
-    public static double printAverageColumn(ArrayList<Double> numbers, int columnNr, int nrOfColumns)
+    private static double printAverageColumn(ArrayList<Double> numbers, int columnNr, int nrOfColumns)
     {
         double count = 0;
         double total = 0;
@@ -57,7 +56,7 @@ public class Programming_Exercise_7_4
         return total / count;
     }
 
-    public static int getNumberOfColumns(File inFile) throws IOException
+    private static int getNumberOfColumns(File inFile) throws IOException
     {
         Scanner lineReader  = new Scanner(inFile);
         String line = lineReader.nextLine();
