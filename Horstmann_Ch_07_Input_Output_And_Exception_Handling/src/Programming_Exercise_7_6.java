@@ -31,26 +31,14 @@ public class Programming_Exercise_7_6
      * @param file the file to search
      * @param searchString the string to search for
      */
-
     private static void printLine(File file, String searchString)
     {
-        try
-        {
-            Scanner lineReader = new Scanner(file);
-            try
-            {
-                while(lineReader.hasNextLine())
-                {
-                    String line = lineReader.nextLine();
-                    if (line.contains(searchString))
-                    {
-                        System.out.println(line);
-                    }
+        try(Scanner lineReader = new Scanner(file)) {
+            while (lineReader.hasNextLine()) {
+                String line = lineReader.nextLine();
+                if (line.contains(searchString)) {
+                    System.out.println(line);
                 }
-            }
-            finally
-            {
-                lineReader.close();
             }
         }
         catch (IOException IOEx1)
@@ -62,7 +50,6 @@ public class Programming_Exercise_7_6
     /**
      * This method prints a usage message when less than one parameter is provided.
      */
-
     private static void printUsage()
     {
         System.out.print("Please provide a search string and one or more files to be searched!");
