@@ -1,8 +1,7 @@
+import java.io.*;
 import java.util.Scanner;
-import java.io.File;
-import java.io.IOException;
 import java.util.logging.*;
-import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 /**
  * This program counts the number of lines, words and chars in a given file inputted by the user.
@@ -24,25 +23,15 @@ public class Programming_Exercise_7_5
     public static int getCharacterCount(File inFile)
     {
         int charCount = 0;
-        try
+        try(Scanner charReader = new Scanner(inFile))
         {
-            Scanner charReader = new Scanner(inFile);
             charReader.useDelimiter("");
+            while(charReader.hasNext())
             {
-                try
-                {
-                    while(charReader.hasNext())
-                    {
-                        char ch = charReader.next().charAt(0);
-                        charCount ++;
-                        Logger.getGlobal().info("" + charCount);
+                char ch = charReader.next().charAt(0);
+                charCount ++;
+                Logger.getGlobal().info("" + charCount);
 
-                    }
-                }
-                finally
-                {
-                    charReader.close();
-                }
             }
         }
         catch(IOException IOEx1)
@@ -56,34 +45,16 @@ public class Programming_Exercise_7_5
     {
 
         int wordCount = 0;
-        try
+        try(Scanner wordScanner = new Scanner(inFile))
         {
-            Scanner wordScanner = new Scanner(inFile);
-            {
-                try
-                {
-                    // count the number of words
-
-                    while(wordScanner.hasNext())
+             while(wordScanner.hasNext())
                     {
                         String word = wordScanner.next();
-                        wordCount ++;
-                        Logger.getGlobal().info("WordCount: " + wordCount);
+                        if(Pattern.matches("\\D+", word)){
+                            wordCount ++;
+                            Logger.getGlobal().info("WordCount: " + wordCount);
+                        }
                     }
-                    /* Another way to count the words:
-                    while(wordScanner.hasNextLine())
-                    {
-
-                        String line = wordScanner.nextLine();
-                        wordCount += line.split("\\s").length;
-                    }
-                    */
-                }
-                finally
-                {
-                    wordScanner.close();
-                }
-            }
         }
         catch(IOException IOEx2)
         {
@@ -95,20 +66,12 @@ public class Programming_Exercise_7_5
     public static int getLineCount(File inFile)
     {
         int lineCount = 0;
-        try
+
+        try(FileReader fr=new FileReader(inFile); LineNumberReader lnr=new LineNumberReader(fr))
         {
-            Scanner lineReader = new Scanner(inFile);
-            try
+            while(lnr.readLine()!=null)
             {
-                while(lineReader.hasNextLine())
-                {
-                    String line = lineReader.nextLine();
-                    lineCount ++;
-                }
-            }
-            finally
-            {
-                lineReader.close();
+                lineCount ++;
             }
         }
         catch(IOException IOEx3)
