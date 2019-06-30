@@ -14,26 +14,24 @@ public class Programming_Exercise_7_7
 {
     public static void main(String[] args)
     {
-        File inFile = null;
+        File inFile;
         JOptionPane.showMessageDialog(null,"Please choose a file in the next window.");
         JFileChooser chooser = new JFileChooser();
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
         {
             inFile = chooser.getSelectedFile();
-        }
-
-
-        try(Scanner wordReader = new Scanner(inFile)){
-            while(wordReader.hasNext())
+            try(Scanner wordReader = new Scanner(inFile))
             {
-                String word = wordReader.next().toLowerCase();
-                dictChecker(word);
+                while(wordReader.hasNext())
+                {
+                    String word = wordReader.next().toLowerCase();
+                    dictChecker(word);
+                }
             }
-
-        }
-        catch (IOException IOEx1)
-        {
-            IOEx1.printStackTrace();
+            catch (IOException IOEx1)
+            {
+                IOEx1.printStackTrace();
+            }
         }
     }
 
