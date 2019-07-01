@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * "Write a program that reads a file in the same format as baby_names.txt and prints all names that are both boy and girl names."
  */
-public class programmingExercise712
+public class Programming_Exercise_7_12
 {
     public static void main(String[] args)
     {
