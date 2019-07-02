@@ -9,7 +9,7 @@ public class Programming_Exercise_7_12
 {
     public static void main(String[] args)
     {
-        File baby_names=new File("/home/daan/baby_names.txt");
+        File baby_names=new File("/path_to_baby_names.txt");
         try(Scanner lineReader = new Scanner(baby_names)){
 
             ArrayList<String> boyNames = new ArrayList<>();
