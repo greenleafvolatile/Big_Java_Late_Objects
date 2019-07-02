@@ -37,7 +37,7 @@ public class Programming_Exercise_7_7
 
     private static void dictChecker(String word)
     {
-        File dictFile = new File("/usr/share/dict/words");
+        File dictFile = new File("/path_to_word_list");
         try(Scanner dictChecker = new Scanner(dictFile)){
             while(dictChecker.hasNextLine()) {
                 String string = dictChecker.nextLine().toLowerCase();
