@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 public class Programming_Exercise_7_11 {
 
     public static void main(String[] args) {
-        File babyNames = new File("/home/daan/baby_names.txt");
-        try (Scanner in = new Scanner(babyNames); PrintWriter boyOut = new PrintWriter("/home/daan/boy_names.txt"); PrintWriter girlOut = new PrintWriter("/home/daan/girl_names.txt")) {
+        File babyNames = new File("/path_to_baby_names.txt");
+        try (Scanner in = new Scanner(babyNames); PrintWriter boyOut = new PrintWriter("/path_to_boy_names.txt"); PrintWriter girlOut = new PrintWriter("/path_to_girl_names.txt")) {
             String format = "%-5s %-8s %-10s %-10s";
             boyOut.print(String.format(format, "Rank", "Name", "Frequency", "Percentage\n"));
             girlOut.print(String.format(format, "Rank", "Name", "Frequency", "Percentage\n"));
