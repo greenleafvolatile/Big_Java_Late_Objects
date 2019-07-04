@@ -25,7 +25,6 @@ public class Programming_Exercise_7_12
                     if (girlName.equals(name)) {
                         System.out.println(name);
                     }
-
                 }
             }
         }
