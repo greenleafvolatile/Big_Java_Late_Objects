@@ -1,49 +1,36 @@
+
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 
 import org.jsoup.nodes.Element;
-
 import java.net.URL;
 import java.util.ArrayList;
 
 /**
  * "Using the mechanism described in Special Topic 7.1, write a program that reads all data from a web page and prints all hyperlinks.
  * Extra credit if your program can follow the links that it finds and find links in those web pages as well."
- *
- * This program will find the links in a web page and then the links in those pages as well. It's an infinite loop and will evt. crash
- * from an OutOfMemoryError or a StackOverflowError.
- *
  */
+
 public class Programming_Exercise_7_15 {
 
 
-    private final ArrayList<String> results;
+    private static ArrayList<String> extractLinks(String originating_web_page) throws Exception{
 
-    private Programming_Exercise_7_15(String url) throws Exception {
-
-        results = new ArrayList<>();
-        extractLinks(url);
-    }
-
-    private void extractLinks(String originating_web_page) throws Exception{
-
-
-        Document htmlDoc=Jsoup.connect(originating_web_page).ignoreHttpErrors(true).ignoreContentType(true).followRedirects(false).get();
-
+        ArrayList<String> results=new ArrayList<>();
+        Document htmlDoc=Jsoup.connect(originating_web_page).timeout(0).ignoreHttpErrors(true).ignoreContentType(true).followRedirects(false).get();
         Elements hyperLinks=htmlDoc.select("a[href]");
         for(Element link : hyperLinks){
 
             String url=link.attr("abs:href");
-            if(!results.contains(url) && isValidURL(url)){
-                System.out.printf("%d: %s\n", results.size() + 1,  url);
+            if(!results.contains(url) && isValidURL(url) && !url.equals(originating_web_page+"/")){
                 results.add(url);
-                extractLinks(url);
             }
         }
+        return results;
     }
 
-    private boolean isValidURL(String url){
+    private static boolean isValidURL(String url){
         try{
             new URL(url).toURI();
             return true;
@@ -55,7 +42,28 @@ public class Programming_Exercise_7_15 {
 
     public static void main(String[] args) throws Exception {
 
-        String url="https://www.volkskrant.nl";
-        Programming_Exercise_7_15 urlExtractor=new Programming_Exercise_7_15(url);
+        String url="https://news.opensuse.org";
+        ArrayList<ArrayList<String>> results=new ArrayList<>();
+        results.add(extractLinks(url));
+        for(String link : results.get(0)){
+            ArrayList<String> list=extractLinks(link);
+            results.add(list);
+        }
+        for(int i=0;i<results.size();i++){
+            if(i==0){
+                System.out.println(url + "links to: " );
+            }
+            else{
+                System.out.println(results.get(0).get(i-1) + "links to: ");
+            }
+            if(results.get(i).isEmpty()){
+                System.out.println("No links found");
+            }
+            else{
+                for (int j=0;j<results.get(i).size();j++) {
+                    System.out.printf("%d: %s\n", j+1, results.get(i).get(j));
+                }
+            }
+        }
     }
 }
