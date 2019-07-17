@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * "Using the mechanism described in Special Topic 7.1, write a program that reads all data from a web page and prints all
  * hyperlinks. Extra credit if your program can follow the links that it finds and find links in those web pages as well."
  */
-
 public class Programming_Exercise_7_15 {
 
 
