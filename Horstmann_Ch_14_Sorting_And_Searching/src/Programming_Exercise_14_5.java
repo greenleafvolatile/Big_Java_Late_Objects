@@ -100,7 +100,7 @@ public class Programming_Exercise_14_5 {
 
     public static void main(String[] args){
 
-        File file=new File("/home/daan/NamesAndPhoneNumbers.csv"); ///path/to/NamesAndPhoneNumbers.csv");
+        File file=new File("/path/to/NamesAndPhoneNumbers.csv");
         Programming_Exercise_14_5 contacts=new Programming_Exercise_14_5(file);
 
         // Look up the phone number of Lamar A. Walsh.
