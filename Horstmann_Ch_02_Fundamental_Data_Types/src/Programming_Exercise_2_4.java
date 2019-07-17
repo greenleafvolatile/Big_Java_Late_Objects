@@ -6,9 +6,18 @@
 
 import javax.swing.JOptionPane;
 
-public class progrExercise24 {
+/**
+ * "Write a program that prompts the user for two integers and then prints:
+ * - The sum.
+ * - The difference.
+ * - The product.
+ * - The average.
+ * - The distance.
+ * - The maximum.
+ * - The minimum.
+ */
 
-    // This program prompts the user for two numbers and then prints the sum, the difference, the product, the average, the distance, the maximum and the minimu.
+public class Programming_Exercise_2_4 {
 
     public static void main(String[] args)
     {
