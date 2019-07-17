@@ -6,11 +6,6 @@
 
 public class Programming_Exercise_9_2_Fill_In_Question extends Question {
 
-
-    /**
-     * a constructor that takes a fill-in questionWithAnswerFilledIn with the answer filled in as parameter.
-     * //* @param questionWithAnswerFilledInWithAnswerFilledIn = the fill-in questionWithAnswerFilledIn with the answer filled in.
-     */
     public Programming_Exercise_9_2_Fill_In_Question(String questionWithAnswerFilledIn) {
 
         super.setText(questionWithAnswerFilledIn.split("\\_")[0] + String.format("%0" + questionWithAnswerFilledIn.split("\\_")[1].length() + "d", 0).replace("0", "_") + "?");
