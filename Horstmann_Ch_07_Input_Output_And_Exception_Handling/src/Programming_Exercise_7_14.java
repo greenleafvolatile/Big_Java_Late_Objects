@@ -6,6 +6,7 @@ import java.util.Scanner;
 /**
  * "Using the mechanism described in Special Topic 7.1, write a program that reads all data from a web page and writes those to a file. Prompt the user for the web pae URL and the file."
  */
+
 public class Programming_Exercise_7_14
 {
     public static void main(String[] args)
