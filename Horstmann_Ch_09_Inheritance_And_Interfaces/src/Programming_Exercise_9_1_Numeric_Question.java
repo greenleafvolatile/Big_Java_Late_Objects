@@ -17,7 +17,7 @@ class Programming_Exercise_9_1_Numeric_Question extends Question {
      */
     @Override
     public boolean checkAnswer(String response) {
-        return (Math.abs(Double.parseDouble(response) - Double.parseDouble(this.getAnswer())) < ACCEPTED_DIFFERENCE);
+        return (Math.abs(Double.parseDouble(response) - Double.parseDouble(this.getAnswer())) <= ACCEPTED_DIFFERENCE);
     }
 
 
