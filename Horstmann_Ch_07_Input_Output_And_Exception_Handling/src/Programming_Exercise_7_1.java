@@ -11,7 +11,6 @@ import java.util.Scanner;
  * -Open the same file again.
  * -Read the message into a string variable and print it."
  */
-
 public class Programming_Exercise_7_1
 {
     public static void main(String[] args)
