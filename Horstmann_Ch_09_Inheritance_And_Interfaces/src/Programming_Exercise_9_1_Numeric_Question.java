@@ -3,21 +3,21 @@
  * the accept the response as correct.
  */
 
-public class NumericQuestion extends Question {
+class Programming_Exercise_9_1_Numeric_Question extends Question {
 
-    private static final double ACCEPTEDDIFFERENCE = 0.01;
+    private static final double ACCEPTED_DIFFERENCE = 0.01;
 
-    public NumericQuestion() {
+    public Programming_Exercise_9_1_Numeric_Question() {
     }
 
     /**
-     * Checks if the given response to the numeric question is correct. A difference of 0.01 between the reponse and the correct answer is accepted.
+     * Checks if the given response to the numeric question is correct. A difference of 0.01 between the response and the correct answer is accepted.
      * @param response, the user's answer to the question.
      * @return boolean.
      */
     @Override
     public boolean checkAnswer(String response) {
-        return (Math.abs(Double.parseDouble(response) - Double.parseDouble(this.getAnswer())) < ACCEPTEDDIFFERENCE);
+        return (Math.abs(Double.parseDouble(response) - Double.parseDouble(this.getAnswer())) < ACCEPTED_DIFFERENCE);
     }
 
 
