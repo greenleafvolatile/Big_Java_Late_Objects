@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * "Write a program that reads a file containing two columns of floating point numbers.
  * Prompt the user for the file name. Print the average of each column."
  */
-
 public class Programming_Exercise_7_4
 {
     public static void main(String[] args)
