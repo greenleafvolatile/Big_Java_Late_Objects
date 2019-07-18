@@ -1,7 +1,6 @@
 /**
  * "Write a program that prompts the user for a measurement in meters and then converts it to miles, feet and inches.
  */
-
 import javax.swing.JOptionPane;
 
 public class Programming_Exercise_2_6 {
