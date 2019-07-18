@@ -1,15 +1,12 @@
 /**
- * "Enhance the output of Excersise P2.4 so that the numbers are properly aligned."
+ * "Enhance the output of Exercise P2.4 so that the numbers are properly aligned."
  */
 
 import java.util.Scanner;
 
 public class Programming_Exercise_2_5 {
 
-    // This program prompts the user for two numbers and then prints the sum, the difference, the product, the average, the distance, the maximum and the minimu.
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
 
         System.out.print("Please enter an number: ");
