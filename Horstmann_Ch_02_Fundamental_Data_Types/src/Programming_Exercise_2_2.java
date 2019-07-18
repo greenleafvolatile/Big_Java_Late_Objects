@@ -2,7 +2,7 @@
  * "Write a program that computes and displays the perimeter of a letter-size(8.5 x 11 inches) sheet of paper and the length of its diagonal.
  */
 
-public class progrExercise22 {
+public class Programming_Exercise_2_2 {
 
 
     // This program computes and displays the perimeter of a letter-size sheet of paper and its diagonal

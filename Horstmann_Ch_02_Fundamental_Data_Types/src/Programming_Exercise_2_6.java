@@ -4,7 +4,7 @@
 
 import javax.swing.JOptionPane;
 
-public class progrExercise26 {
+public class Programming_Exercise_2_6 {
 
     public static void main (String[] args)
     {

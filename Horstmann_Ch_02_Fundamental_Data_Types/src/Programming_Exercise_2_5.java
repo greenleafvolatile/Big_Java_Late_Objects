@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class progrExercise25 {
+public class Programming_Exercise_2_5 {
 
     // This program prompts the user for two numbers and then prints the sum, the difference, the product, the average, the distance, the maximum and the minimu.
 

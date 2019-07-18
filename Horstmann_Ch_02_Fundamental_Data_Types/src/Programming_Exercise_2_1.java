@@ -3,7 +3,7 @@
  * Use constants and comments in your program."
  */
 
-public class progrExercise21 {
+public class Programming_Exercise_2_1 {
 
     public static void main(String[] args) {
 

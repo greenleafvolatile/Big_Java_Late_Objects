@@ -5,7 +5,7 @@
 
 import javax.swing.JOptionPane;
 
-public class progrExercise27 {
+public class Programming_Exercise_2_7 {
 
     public static void main(String[] args)
 
