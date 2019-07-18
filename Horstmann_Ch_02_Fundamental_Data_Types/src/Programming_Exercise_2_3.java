@@ -1,6 +1,7 @@
 /**
  * "Write a program that reads a number and displays the square, cube and fourth power. Use the Math.pow method only for the fourth power."
  */
+
 import java.util.Scanner;
 
 public class Programming_Exercise_2_3 {
