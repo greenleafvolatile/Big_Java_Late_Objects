@@ -51,7 +51,7 @@ public class Programming_Exercise_9_6_Question
     }
 
     boolean checkAnswer(String response) {
-        return response.replaceAll("\\s+", "").toLowerCase().equals(answer.replaceAll("\\s+", "").toLowerCase());
+        return response.toLowerCase().equals(answer.trim().toLowerCase());
     }
 
     void display() {
