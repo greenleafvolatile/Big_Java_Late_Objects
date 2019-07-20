@@ -10,14 +10,16 @@ class Programming_Exercise_9_1_Numeric_Question extends Question {
     public Programming_Exercise_9_1_Numeric_Question() {
     }
 
-    /**
-     * Checks if the given response to the numeric question is correct. A difference of 0.01 between the response and the correct answer is accepted.
-     * @param response, the user's answer to the question.
-     * @return boolean.
-     */
     @Override
     public boolean checkAnswer(String response) {
         return (Math.abs(Double.parseDouble(response) - Double.parseDouble(this.getAnswer())) <= ACCEPTED_DIFFERENCE);
+    }
+
+    public static void main(String[] args){
+
+        Question question = new Programming_Exercise_9_1_Numeric_Question();
+        question.setText("What is 2 + 3: ");
+        question.setAnswer("5");
     }
 
 
