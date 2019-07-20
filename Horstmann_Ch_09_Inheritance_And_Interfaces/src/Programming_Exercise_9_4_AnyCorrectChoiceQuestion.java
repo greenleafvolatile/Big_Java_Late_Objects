@@ -7,19 +7,12 @@ import java.util.Scanner;
  * Provide instructions in the question text.
  */
 
-public class Programming_Exercise_9_4_AnyCorrectChoiceQuestion extends Question {
+public class Programming_Exercise_9_4_AnyCorrectChoiceQuestion extends ChoiceQuestion {
 
-    private final ArrayList<String> options;
-
-    private Programming_Exercise_9_4_AnyCorrectChoiceQuestion() {
-        options=new ArrayList<>();
-    }
-
-
-    private void addOption(String option, boolean correct){
-        options.add(option);
+    public void addOption(String option, boolean correct){
+        super.add(option);
         if(correct){
-            String answer="" + options.size();
+            String answer="" + super.getOptions().size();
             setAnswer(answer);
         }
     }
@@ -40,14 +33,6 @@ public class Programming_Exercise_9_4_AnyCorrectChoiceQuestion extends Question 
         return false;
     }
 
-    @Override
-    public void display() {
-        super.display();
-        for (int i = 0; i < options.size(); i++) {
-            int choiceNumber = i + 1;
-            System.out.println(choiceNumber + ": " + options.get(i));
-        }
-    }
 
     public static void main(String[] args){
 
