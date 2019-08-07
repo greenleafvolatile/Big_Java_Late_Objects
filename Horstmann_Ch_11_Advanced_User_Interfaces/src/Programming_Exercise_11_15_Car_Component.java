@@ -2,7 +2,7 @@ import java.util.List;
 import java.awt.*;
 import javax.swing.*;
 
-public class Programming_Exercise_11_15_Car_Component extends JComponent {
+public class Programming_Exercise_11_15_Car_Component extends JComponent{
 
     public static final int PREF_WIDTH=400;
     public static final int PREF_HEIGHT=400;
