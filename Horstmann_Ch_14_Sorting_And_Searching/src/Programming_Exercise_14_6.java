@@ -4,7 +4,7 @@ import java.util.Random;
  * "Implement a program that measures the performance of the insertion algorithm described in Special Topic 14.2."
  */
 
-public class Programming_Exercise_14_6 {
+public class Programming_Exercise_14_6{
 
     public static void main(String[] args){
 
