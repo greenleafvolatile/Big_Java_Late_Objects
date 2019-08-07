@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 /**
  * This program counts the number of lines, words and chars in a given file inputted by the user.
  */
-
 public class Programming_Exercise_7_5
 {
     public static void main(String[] args)
