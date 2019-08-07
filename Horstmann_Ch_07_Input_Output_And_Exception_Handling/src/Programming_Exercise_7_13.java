@@ -6,7 +6,6 @@ import java.util.Scanner;
  * correctly specified values and print the sum when the user is done entering data. Use exception handling to detect
  * improper inputs."
  */
-
 public class Programming_Exercise_7_13
 {
     public static void main(String[] args)
