@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * - The minimum.
  */
 
-public class Programming_Exercise_2_4 {
+public class Programming_Exercise_2_4{
 
     public static void main(String[] args)
     {
