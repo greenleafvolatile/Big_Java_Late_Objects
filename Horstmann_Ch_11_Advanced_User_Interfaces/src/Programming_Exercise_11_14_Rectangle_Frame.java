@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * "Change the rectangle animation in Section 11.5 so that it shows two rectangles moving in opposite directions."
  */
 
-public class Programming_Exercise_11_14_Rectangle_Frame extends JFrame {
+public class Programming_Exercise_11_14_Rectangle_Frame extends JFrame{
 
     private final List<Programming_Exercise_11_14_Custom_Rectangle> rectangles;
     private final Programming_Exercise_11_14_Rectangle_Component scene;
