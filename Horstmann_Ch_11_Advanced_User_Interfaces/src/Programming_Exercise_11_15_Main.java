@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * "Write a program that animates a car so that it moves across a frame."
  */
 
-public class Programming_Exercise_11_15_Main extends JFrame {
+public class Programming_Exercise_11_15_Main extends JFrame{
 
     private final List<Programming_Exercise_11_15_Car> cars;
     private final Programming_Exercise_11_15_Car_Component carComponent;
