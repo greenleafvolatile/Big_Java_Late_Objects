@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * "Write a program Find that searches all files specified on the command line and prints out all lines containing a specified word"
  */
-
 public class Programming_Exercise_7_6
 {
     public static void main(String[] args)
