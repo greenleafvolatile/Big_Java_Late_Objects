@@ -6,7 +6,7 @@ import javax.swing.JComponent;
  * This component displays a rectangle that can be moved.
  */
 
-public class Programming_Exercise_11_14_Rectangle_Component extends JComponent {
+public class Programming_Exercise_11_14_Rectangle_Component extends JComponent{
 
     public static final int PREF_WIDTH=400, PREF_HEIGHT=400;
 
