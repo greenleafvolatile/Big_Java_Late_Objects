@@ -3,7 +3,6 @@ import java.awt.*;
 
 public class Programming_Exercise_11_17_Vertical_Slider extends JFrame {
 
-
     private JSlider slider;
     private int min, max, value;
 

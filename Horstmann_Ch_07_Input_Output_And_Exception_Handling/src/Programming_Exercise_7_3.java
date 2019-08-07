@@ -8,7 +8,7 @@ import java.io.IOException;
  * If the user doesn't specify any file name, them prompt the user for the name."
  */
 
-public class Programming_Exercise_7_3 {
+public class Programming_Exercise_7_3{
     public static void main(String[] args) {
         String inputFile;
         String outputFile;

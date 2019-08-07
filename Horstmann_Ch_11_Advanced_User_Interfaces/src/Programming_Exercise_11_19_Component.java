@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.JComponent;
 
-public class Programming_Exercise_11_19_Component extends JComponent {
+public class Programming_Exercise_11_19_Component extends JComponent{
 
     private static final int PREF_WIDTH=1000;
     private static final int PREF_HEIGHT=500;

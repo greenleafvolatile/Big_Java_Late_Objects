@@ -4,7 +4,7 @@ public class Programming_Exercise_11_17_Direction{
     private String horizontal_direction;
     private String vertical_direction;
 
-    public Programming_Exercise_11_17_Direction(String horizontal, String vertical){
+    public Programming_Exercise_11_17_Direction(String horizontal, String vertical) {
         horizontal_direction=horizontal;
         vertical_direction=vertical;
     }

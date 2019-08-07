@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
  * the component whenever the mouse is clicked. Hint: Store all points on which the user clicked, and draw all rectangles
  * in the paintComponent method.
  */
-public class Programming_Exercise_11_18_Frame extends JFrame {
+public class Programming_Exercise_11_18_Frame extends JFrame{
 
     private static final int FRAME_WIDTH=300;
     private static final int FRAME_HEIGHT=400;

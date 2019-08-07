@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Programming_Exercise_11_16_Car {
+public class Programming_Exercise_11_16_Car{
 
     public final static int WIDTH=45, HEIGHT=15, TIRE_DIAMETER=12;
     private int xPos, yPos;

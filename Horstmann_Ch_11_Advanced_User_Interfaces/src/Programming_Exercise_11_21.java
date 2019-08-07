@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
  * on the center and the second on a point on the periphery. Hint: In the mouse press handler, you must keep track
  * of whether you already received the center point in a previous mouse press."
  */
-
 public class Programming_Exercise_11_21 extends JFrame{
 
     private boolean firstClick;

@@ -13,12 +13,12 @@ class Programming_Exercise_11_14_Custom_Rectangle extends Rectangle {
         this.direction = direction;
     }
 
-    public void setDirection(String direction) {
+    public void setDirection(String direction){
         this.direction = direction;
     }
 
     public void moveRectangle() {
-        if (this.direction.equals("up")) {
+        if (this.direction.equals("up")){
             this.xPos--;
             this.yPos--;
             this.setLocation(xPos, yPos);
