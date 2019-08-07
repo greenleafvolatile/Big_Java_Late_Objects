@@ -4,7 +4,7 @@
  */
 public class Programming_Exercise_2_1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         final double INCH = 25.4;
         double width = 8.5;
