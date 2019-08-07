@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Programming_Exercise_14_2 {
 
-    public class Programming_Exercise_14_2_Coin {
+    public class Programming_Exercise_14_2_Coin{
         private int value;
         private String name;
 
