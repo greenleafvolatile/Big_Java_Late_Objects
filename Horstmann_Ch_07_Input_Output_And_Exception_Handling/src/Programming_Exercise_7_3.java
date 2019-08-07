@@ -7,7 +7,6 @@ import java.io.IOException;
  * "Repeat Exercise P7.2, but allow the user to specify the file name in the command-line.
  * If the user doesn't specify any file name, them prompt the user for the name."
  */
-
 public class Programming_Exercise_7_3{
     public static void main(String[] args) {
         String inputFile;
