@@ -2,7 +2,6 @@
  * Add a class NumericQuestion to the question hierarchy of Section 9.1. If the response and the expected answer differ by no more than 0.01,
  * the accept the response as correct.
  */
-
 class Programming_Exercise_9_1_Numeric_Question extends Question {
 
     private static final double ACCEPTED_DIFFERENCE = 0.01;
