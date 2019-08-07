@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * Write a program that animates two cars moving across a frame in opposite directions (but at different heights so that they don't collide)
  */
 
-public class Programming_Exercise_11_16_Main extends JFrame {
+public class Programming_Exercise_11_16_Main extends JFrame{
 
     List<Programming_Exercise_11_16_Car> cars;
     Programming_Exercise_11_16_Car_Component carComponent;
