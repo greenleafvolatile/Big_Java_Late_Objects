@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * "Modify the selection sort algorithm to sort an array of integers in descending order."
  */
-public class Programming_Exercise_14_1 {
+public class Programming_Exercise_14_1{
 
     public static void reverseSort(int[] array){
 
