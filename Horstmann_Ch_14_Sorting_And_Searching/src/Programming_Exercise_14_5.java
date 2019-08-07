@@ -8,7 +8,7 @@ import java.util.*;
  * lookups."
  * */
 
-public class Programming_Exercise_14_5 {
+public class Programming_Exercise_14_5{
 
     private final List<Contact> contacts;
 
