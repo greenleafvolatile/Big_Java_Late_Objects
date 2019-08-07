@@ -4,7 +4,6 @@
  * variables. In the constructor, call the setLocation and setSize methods of the Rectangle class. Provide a program that
  * tests the methods that you supplied."
  */
-
 public class Programming_Exercise_9_10_Better_Rectangle extends java.awt.Rectangle {
 
     public Programming_Exercise_9_10_Better_Rectangle(int x, int y, int width, int height) {
