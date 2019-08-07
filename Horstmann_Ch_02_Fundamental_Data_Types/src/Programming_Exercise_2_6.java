@@ -3,7 +3,7 @@
  */
 import javax.swing.JOptionPane;
 
-public class Programming_Exercise_2_6 {
+public class Programming_Exercise_2_6{
 
     public static void main (String[] args)
     {
