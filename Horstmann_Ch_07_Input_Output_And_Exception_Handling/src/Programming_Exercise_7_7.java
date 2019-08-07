@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
  * "Write a program that checks the spelling of all words in a file. It should read each word of a file
  * and check whether it is contained in a word list [...]. The program should print out all words that it cannot find in the word list"
  */
+
 public class Programming_Exercise_7_7
 {
     public static void main(String[] args)
