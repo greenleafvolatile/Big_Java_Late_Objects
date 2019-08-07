@@ -7,7 +7,7 @@ import java.util.Scanner;
  * all sample runs."
  */
 
-public class Programming_Exercise_14_3 {
+public class Programming_Exercise_14_3{
 
     public static void main(String[] args){
 
