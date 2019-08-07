@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * "Write a program that reads each line in a file, reverses its lines, and writes them to another file."
  */
-
 public class Programming_Exercise_7_9
 {
     public static void main(String[] args)
