@@ -124,7 +124,7 @@ public class Programming_Exercise_11_11_Main extends JFrame {
         controlPanel.add(leftPanel);
         controlPanel.add(middlePanel);
         controlPanel.add(rightPanel);
-        contPanel.add(controlPanel, BorderLayout.SOUTH);
+        this.add(controlPanel, BorderLayout.SOUTH);
     }
 
     public static void main(String[] args) {
