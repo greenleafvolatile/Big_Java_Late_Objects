@@ -8,7 +8,7 @@ public class Programming_Exercise_14_4 {
 
     static class MergeSorter {
 
-        public static void sort(String[] array) {
+        public static void sort(String[] array){
             if (array.length < 2) {
                 return;
             }
