@@ -12,7 +12,7 @@ public class Programming_Exercise_11_17_Component extends JComponent{
     private String message;
     private Dimension dimension;
 
-    public Programming_Exercise_11_17_Component(String message, Font font) {
+    public Programming_Exercise_11_17_Component(String message, Font font){
         dimension=new Dimension(PREF_WIDTH, PREF_HEIGHT);
         setFont(font);
         this.message = message;
