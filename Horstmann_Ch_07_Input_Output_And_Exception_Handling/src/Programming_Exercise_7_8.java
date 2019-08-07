@@ -8,7 +8,6 @@ import java.util.Scanner;
 /**
  * "Write a program that replaces each line of a file with its reverse".
  */
-
 public class Programming_Exercise_7_8
 {
     public static void main(String[] args)
