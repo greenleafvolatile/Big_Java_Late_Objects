@@ -66,7 +66,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
     /**
      * This method adds a ComponentListener to the frame that ensure that the component is resized then the frame is maximized or normalized using the OS controlled buttons.
      * Unfortunately the text when maximized no longer moves neatly from one corner to the next(only halfway across the screen). I have however already sunk way more time into this
-     * exercise than I had initially alotted so I chose not to look into this.
+     * exercise than I had initially allotted so I chose not to look into this.
      */
     private void addComponentListener(){
         addComponentListener(new ComponentAdapter() {
@@ -372,7 +372,7 @@ public class Programming_Exercise_11_17_Frame extends JFrame {
 
     class TimerListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent event){
+    public void actionPerformed(ActionEvent event){
             if(component.getYpos()>=component.getPreferredSize().height + component.getMessageHeight() && component.getDirection().getHorizontalDirection().equals("right") && component.getDirection().getVerticalDirection().equals("down")){
                 //Set message to start from top right corner.
                 component.setYpos(0);
