@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class Programming_Exercise_2_3 {
+public class Programming_Exercise_2_3{
 
     // This program gives the square, cube and fourth power of a give number.
 
