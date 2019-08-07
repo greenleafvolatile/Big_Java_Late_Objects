@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 /**
  * "Write a program that reads in baby_names.txt and produces two files, boy_names.txt and girl_names.txt, separating the data for boys and girls."
  */
-
 public class Programming_Exercise_7_11 {
 
     public static void main(String[] args) {
