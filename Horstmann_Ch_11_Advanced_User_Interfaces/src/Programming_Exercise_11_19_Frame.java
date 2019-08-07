@@ -9,6 +9,7 @@ import java.awt.*;
  * "Write a program that prompts the user to enter the x- and y-positions of a center point and a radius, using text fields.
  * When the user clicks a "Draw" button, draw a circle with that center and radius in a component".
  */
+
 public class Programming_Exercise_11_19_Frame extends JFrame{
 
     private final Programming_Exercise_11_19_Component component;
