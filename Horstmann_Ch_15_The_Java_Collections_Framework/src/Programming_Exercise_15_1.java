@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * Write a method public static void downSize(LinkedList<String> employeeNames, int n) that removes every nth employee from a LinkedList.
+ * "Write a method public static void downSize(LinkedList<String> employeeNames, int n) that removes every nth employee from a LinkedList."
  */
 
 public class Programming_Exercise_15_1 {
