@@ -29,6 +29,6 @@ public class Programming_Exercise_15_2 {
             System.out.println(string);
         }
 
-        // And then I came across Collections.reverse()l
+        // And then I came across Collections.reverse()
     }
 }
