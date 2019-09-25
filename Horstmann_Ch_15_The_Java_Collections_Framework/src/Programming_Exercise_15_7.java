@@ -7,14 +7,14 @@ import java.util.TreeSet;
  * "Write a program that reads text from a file and breaks it up into individual words.
  * Insert the words into a tree set. At the end of the input file, print all the words,
  * followed by the size of the resulting set. This program determines how many unique words
- * text file has."
+ * the text file has."
  */
 public class Programming_Exercise_15_7 {
 
     public static void main(String[] args){
 
-        try(FileReader file=new FileReader("/home/daan/IdeaProjects/Horstmann/Horstmann_Ch_15_The_Java_Collections_Framework/Mary.txt");
-            Scanner in=new Scanner(file)){
+        try(FileReader file=new FileReader("/home/daan/IdeaProjects/Horstmann/Horstmann_Ch_15_The_Java_Collections_Framework/Mary.txt")){
+            Scanner in=new Scanner(file);
             Set<String> set=new TreeSet<>();
             int nrOfWords=0;
             while(in.hasNext()){
@@ -30,7 +30,6 @@ public class Programming_Exercise_15_7 {
         catch(Exception e){
             e.printStackTrace();
         }
-
 
     }
 }
