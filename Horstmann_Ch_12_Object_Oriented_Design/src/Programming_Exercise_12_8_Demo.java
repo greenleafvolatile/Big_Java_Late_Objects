@@ -2,6 +2,14 @@ import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * "Write a program that simulates a vending machine. Products can be purchased by inserting coins with a value at least
+ * to the cost of the product. A user selects a product from a list of available products, adds coins, and either gets
+ * the product or get the coins returned. The coins are returned if insufficient money was supplied or if the product is
+ * sold out. The machine does not give change if too much money was added. Products can be restocked and money removed by
+ * an operator. Follow the design process that was described in this chapter. You solution should include a class
+ * VendingMachine that is not coupled with the Scanner or PrintStream classes."
+ */
 public class Programming_Exercise_12_8_Demo {
 
     private final static DecimalFormat df=new DecimalFormat("0.00");
@@ -9,6 +17,7 @@ public class Programming_Exercise_12_8_Demo {
     public static void main(String[] args) {
         // Create a VendingMachine object
         Programming_Exercise_12_8_Vending_Machine machine = new Programming_Exercise_12_8_Vending_Machine();
+
         // Stock the machine
         machine.addProduct(new Progamming_Exercise_12_8_Product("Mars", 150, 5));
         machine.addProduct(new Progamming_Exercise_12_8_Product("Twix", 125, 2));
