@@ -18,6 +18,10 @@ public class Progamming_Exercise_12_8_Product {
         amount=anAmount;
     }
 
+    public void addAmount(int anAmount){
+        amount+=anAmount;
+    }
+
     public String getName(){
         return name;
     }
