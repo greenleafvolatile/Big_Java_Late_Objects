@@ -32,7 +32,10 @@ public class Programming_Exercise_12_8_Demo {
             int i = 0;
             while (i < machine.getProducts().size()) {
                 Progamming_Exercise_12_8_Product product = machine.getProducts().get(i);
-                System.out.printf("%d) %-8s $%s%n", i + 1, product.getName(), "" + df.format(product.getPrice() / 100.0));
+
+
+                System.out.printf("%d) %-8s $%s%n", i + 1, product.getName(), "" + product.getPrice() / 100.0);
+                //System.out.printf("%d) %-8s $%s%n", i + 1, product.getName(), "" + df.format(product.getPrice() / 100.0));
                 i++;
             }
             System.out.printf("%d) Operator options%n", i + 1);
@@ -43,39 +46,50 @@ public class Programming_Exercise_12_8_Demo {
             try {
                 // Get user's choice.
                 int choice = in.nextInt();
+                // User selects a product
                 if (choice > 0 && choice <= i) {
                     Progamming_Exercise_12_8_Product selectedProduct = machine.getProducts().get(choice-1);
-                    // Prompt user to insert coins.
-                    System.out.printf("Insert (p)enny, (n)ickel, (di)me, (q)uarter, (h)alf), or (d)ollar. Select 'r' when ready:%n");
+                    // Prompt user to insert coins or try to retrieve product.
                     loop:
-                    while (in.hasNext()) {
+                    do {
+                        System.out.printf("Insert (p)enny, (n)ickel, (di)me, (q)uarter, (h)alf), or (d)ollar. Select 'r' when ready:%n");
                         String input = in.next();
+                        int value= 0;
                         switch (input) {
                             case ("p"):
-                                machine.insertCoin(1);
+                                value+= 1;
+                                //machine.insertCoin(1);
                                 break;
                             case ("n"):
-                                machine.insertCoin(5);
+                                value+= 5;
+                                //machine.insertCoin(5);
                                 break;
                             case ("di"):
-                                machine.insertCoin(10);
+                                value+= 10;
+                                //machine.insertCoin(10);
                                 break;
                             case ("q"):
-                                machine.insertCoin(25);
+                                value+= 25;
+                                //machine.insertCoin(25);
                                 break;
                             case ("h"):
-                                machine.insertCoin(50);
+                                value+= 50;
+                                //machine.insertCoin(50);
                                 break;
                             case ("d"):
-                                machine.insertCoin(100);
+                                value+= 100;
+                                //machine.insertCoin(100);
                                 break;
                             case ("r"):
                                 break loop;
                             default:
-                                System.out.printf("Insert (p)enny, (n)ickel, (di)me, (q)uarter, (h)alf), or (d)ollar. Select 'r' when ready:%n");
+                                break;
                         }
-                        System.out.printf("Current amount: $%s", df.format(machine.getAmountInserted() / 100.0));
-                    }
+                        machine.insertCoin(value);
+                        if(value>0){
+                            System.out.printf("Current amount: $%s%n", df.format(machine.getAmountInserted() / 100.0));
+                        }
+                    }while(true);
                     // Retrieve selection.
                     if (machine.getAmountInserted() >= selectedProduct.getPrice() && selectedProduct.getAmount() > 0) {
 
@@ -88,7 +102,7 @@ public class Programming_Exercise_12_8_Demo {
                     }
                     // Show insufficient money supplied message.
                     else if (machine.getAmountInserted() < selectedProduct.getPrice()) {
-                        System.out.print("Insufficient money supplied.");
+                        System.out.println("Insufficient money supplied.");
                         // return coins
                         machine.setAmountInserted(0);
                     }
@@ -101,17 +115,66 @@ public class Programming_Exercise_12_8_Demo {
                 }
                 // Show operator options.
                 else if (choice == i + 1) {
-                    System.out.println("1)Remove coins");
-                    System.out.println("2)Restock");
-                    System.out.print("Please select an option: ");
-                    choice=in.nextInt();
-                    switch(choice){
-                        case 1 : System.out.println("Coins removed!"); machine.setNrOfCoinsInserted(0);
-                        case 2 : while(true){
-                            for(int j=0;j<machine.getProducts().size();j++){
-                               System.out.printf("%d) %-8s%n", j+1, machine.getProducts().get(j).getName());
+                    loop:
+                    while(true) {
+                        System.out.println("1) Remove coins");
+                        System.out.println("2) Restock");
+                        System.out.println("3) Main menu");
+                        System.out.print("Please select an option: ");
+                        try {
+                            choice = in.nextInt();
+                            // Remove coins.
+                            switch (choice) {
+                                case 1:
+                                    System.out.println("Coins removed!");
+                                    machine.setNrOfCoinsInserted(0);
+                                    break;
+                                    // Restock.
+                                case 2:
+                                    while (true) {
+                                        for (int j = 0; j < machine.getProducts().size(); j++) {
+                                            System.out.printf("%d) %-8s In stock: %d%n", j + 1, machine.getProducts().get(j).getName(), machine.getProducts().get(j).getAmount());
+                                        }
+                                        System.out.printf("%d) Main menu%n", i + 1);
+                                        System.out.printf("Please select an option (%d - %d): ", 1, i + 1);
+
+                                        try{
+                                            choice = in.nextInt();
+                                            if(choice==i+1){
+                                                break loop;
+                                            }
+                                            else{
+                                                while(true){
+
+                                                    System.out.print("Please enter amount to stock: ");
+                                                    try{
+                                                        int amount = in.nextInt();
+                                                        machine.getProducts().get(choice - 1).addAmount(amount);
+                                                        break;
+                                                    }
+                                                    catch(Exception e){
+                                                        System.out.println("Invalid input. Please enter a number: " );
+                                                        in.next();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        catch(Exception e){
+                                           System.out.println("Invalid input. Please enter a number: " );
+                                           in.next();
+                                        }
+                                    }
+                                    // Main menu.
+                                case 3:
+                                    break loop;
+                                default:
+                                    System.out.println("Invalid option");
+                                    in.next();
                             }
-                            System.out.println("Please select product to restock: ");
+                        } catch (Exception e) {
+                            System.out.println("Invalid option");
+                            in.next();
+
                         }
                     }
                 } else if (choice == i + 2) {
