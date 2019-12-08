@@ -18,7 +18,7 @@ public class Programming_Exercise_13_6 {
     public static void main(String[] args){
 
         String string="Mississippi";
-        String text="sip";
+        String text="sissi";
         System.out.printf("The string %s contains the text %s: %b", string, text, find(text, string));
     }
 }
